@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ah Young · UX Designer Portfolio</title>
+<meta name="description" content="Ah Young Kim is a Senior UX Designer at Samsung, a former product manager who designs purchase experiences for Galaxy devices. Case studies on the Galaxy Watch8 buy flow, the Galaxy XR purchase journey and the Samsung Shop App.">
+<link rel="canonical" href="https://ahyoungk.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ah Young · UX Designer Portfolio">
+<meta property="og:description" content="Ah Young Kim is a Senior UX Designer at Samsung, a former product manager who designs purchase experiences for Galaxy devices. Case studies on the Galaxy Watch8 buy flow, the Galaxy XR purchase journey and the Samsung Shop App.">
+<meta property="og:url" content="https://ahyoungk.com/">
+<meta property="og:image" content="https://ahyoungk.com/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400..700;1,400..700&amp;display=swap">
+<style>
+body{margin:0;background:#FFFFFF}
+.site{--bg:#FFFFFF;--fg:#14171A;--fg2:#2A2F35;--muted:#5B636B;--muted2:#6B737B;--line:#E4E7EA;--ph1:#EEF0F2;--ph2:#F7F8F9;--ph-fg:#4A5158;--hl:#F2F3F1;--hover:#4B735B;--btn-bg:#14171A;--btn-fg:#FFFFFF;--btn-sub:#C9CED3}
+.site[data-theme="dark"]{--bg:#121416;--fg:#ECEEF0;--fg2:#D3D7DB;--muted:#A3ABB2;--muted2:#8D959C;--line:#2A2F34;--ph1:#1C1F22;--ph2:#23272B;--ph-fg:#A3ABB2;--hl:#22262A;--hover:#8DB89D;--btn-bg:#ECEEF0;--btn-fg:#121416;--btn-sub:#4A5158}
+body:has(.site[data-theme="dark"]){background:#121416}
+.site a{color:var(--fg)}.site a:hover{color:var(--hover)}
+.site .nav-link{color:var(--muted)}.site .nav-link[aria-current="page"]{color:var(--fg)}
+.theme-btn:hover{background:var(--hl)}
+.site .foot-link:hover{color:var(--fg)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.cov{position:relative;width:100%;aspect-ratio:4/3;border-radius:20px;overflow:hidden;isolation:isolate;transform:translateZ(0)}
+.cov-win{position:absolute;overflow:hidden}
+.cov-img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 0%;transition:object-position 1.4s cubic-bezier(.2,.7,.2,1)}
+.work-card:hover .cov-img,.work-card:focus-visible .cov-img,.work-card.in-view .cov-img{object-position:50% 100%;transition:object-position 8s linear}
+.work-card[data-cov="xr"]:hover .cov-img,.work-card[data-cov="xr"]:focus-visible .cov-img,.work-card[data-cov="xr"].in-view .cov-img{transition-duration:3s}
+.work-card[data-cov="shop"]:hover .cov-img,.work-card[data-cov="shop"]:focus-visible .cov-img,.work-card[data-cov="shop"].in-view .cov-img{transition-duration:10.5s}
+.cov-poster{transition:opacity .35s ease}
+.work-card:hover .cov-poster,.work-card:focus-visible .cov-poster,.work-card.in-view .cov-poster{opacity:0}
+.cov-play{position:absolute;right:16px;bottom:16px;width:40px;height:40px;border-radius:999px;background:rgba(20,23,26,0.72);color:#FFF;display:flex;align-items:center;justify-content:center;padding-left:2px;box-sizing:border-box;backdrop-filter:blur(6px);transition:opacity .3s ease}
+.work-card:hover .cov-play,.work-card.in-view .cov-play{opacity:0}
+@media (prefers-reduced-motion:reduce){.cov-img,.work-card:hover .cov-img,.work-card:focus-visible .cov-img,.work-card.in-view .cov-img{transition:none;object-position:50% 0%}}
+</style>
+<style>#app{display:contents}</style>
+</head>
+<body>
+<div id="app"></div>
+<script type="text/x-dc-template" id="dc-tpl">
+<div id="top" class="site" data-theme="{{ theme }}" style="min-height: 1900px; background: var(--bg); color: var(--fg); font-family: 'Inter', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif; display: flex; flex-direction: column">
+
+<header style="border-bottom: 1px solid var(--line)">
+<div style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 40px; box-sizing: border-box; min-height: 64px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 24px">
+<a href="#top" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; text-decoration: none">Ah Young Kim</a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 20px">
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0 32px">
+<a class="nav-link" href="#work" aria-current="page" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; text-decoration: none">Work</a>
+<a class="nav-link" href="/about/" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; text-decoration: none">About</a>
+<a class="nav-link" href="/assets/c9416fa5f0b87efc6c358e7c10e8d57b.pdf" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; text-decoration: none">Resume</a>
+</nav>
+<span aria-hidden="true" style="width: 1px; height: 18px; background: var(--line)"></span>
+<button type="button" class="theme-btn" onClick="{{ toggleTheme }}" aria-label="{{ themeLabel }}" title="{{ themeLabel }}" style="font-family: inherit; cursor: pointer; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 999px; background: transparent; color: var(--fg); display: inline-flex; align-items: center; justify-content: center">
+<sc-if value="{{ isDark }}" hint-placeholder-val="{{ false }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.7"></circle><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4L6 18M18 6l1.4-1.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path></svg></sc-if>
+<sc-if value="{{ isLight }}" hint-placeholder-val="{{ true }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"></path></svg></sc-if>
+</button>
+</div>
+</div>
+</header>
+
+<section style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 80px 40px 72px; box-sizing: border-box">
+<h1 style="margin: 0; font-family: 'Inter', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif; font-size: clamp(30px, 3.5vw, 50px); line-height: 1.2; letter-spacing: -0.02em; font-weight: 400"><span style="font-family: 'Inter', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif; font-weight: 500; letter-spacing: -0.02em">Ah Young Kim</span><br><span style="font-size: 0.88em">a <em style="font-style: italic; color: {{ pm }}">product manager</em> turned <em style="font-style: italic; color: {{ design }}">UX designer</em> at Samsung.</span></h1>
+</section>
+
+<section style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 40px; box-sizing: border-box">
+<div style="font-size: 15px; font-weight: 600; letter-spacing: 0.1em; color: var(--muted)">5.5 YEARS AT SAMSUNG</div>
+<div class="ten" style="margin-top: 22px; position: relative">
+<div style="position: relative; display: flex; gap: 3px; height: 14px">
+<div style="flex: 16 1 0; min-width: 0; border-radius: 7px 3px 3px 7px; background: {{ pm }}"></div>
+<div style="flex: 46 1 0; min-width: 0; border-radius: 3px 7px 7px 3px; background: {{ design }}"></div>
+</div>
+<div style="margin-top: 14px; display: flex; gap: 3px">
+<div style="flex: 16 1 0; min-width: 0; display: flex; flex-direction: column; gap: 4px">
+<div style="font-size: 18px; font-weight: 600">Product Manager</div>
+<div style="font-size: 15px; color: var(--muted)">Sep 2021 – Dec 2022</div>
+</div>
+<div style="flex: 46 1 0; min-width: 0; display: flex; flex-direction: column; gap: 4px">
+<div style="font-size: 18px; font-weight: 600">Senior UX Designer</div>
+<div style="font-size: 15px; color: var(--muted)">Jan 2023 – now</div>
+</div>
+</div>
+</div>
+</section>
+
+<div style="flex: 1 0 auto; width: 100%; max-width: 1200px; margin: 0 auto; padding: 96px 40px 112px; box-sizing: border-box; display: flex; flex-direction: column; gap: 96px">
+
+<section id="work" aria-label="Work" style="scroll-margin-top: 24px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr)); gap: 56px 32px">
+<a href="/watch8/" class="work-card {{ watchPlay }}" data-cov="watch" style="display: flex; flex-direction: column; gap: 0; text-decoration: none; color: inherit">
+<div class="cov" style="background: #AABFDE" role="img" aria-label="Galaxy Watch &quot;Discover your band&quot; overlay; scrolls through the band list on hover">
+<div class="cov-win" style="left: 14%; top: 8.8%; width: 72%; bottom: 0; border-radius: 12px 12px 0 0; background: #ECECEC; box-shadow: 0 16px 40px rgba(20, 23, 26, 0.14)">
+<img class="cov-img" src="/assets/9e26a49a8f8a622f8cbf8a249f9c15a2.png" alt="">
+</div>
+</div>
+<h3 style="margin: 24px 0 0; font-size: clamp(22px, 2vw, 28px); line-height: 1.25; letter-spacing: -0.02em; font-weight: 500; color: var(--fg)">Optimizing the Galaxy Watch8 buy flow</h3>
+<p style="margin: 10px 0 0; font-size: 18px; line-height: 1.5; color: var(--muted); text-wrap: pretty">Simplifying the configuration step to lift conversion and cut drop-off.</p>
+</a>
+<a href="/galaxy-xr/" class="work-card {{ xrPlay }}" data-cov="xr" style="display: flex; flex-direction: column; gap: 0; text-decoration: none; color: inherit">
+<div class="cov" style="background: #2B2F3A" role="img" aria-label="Galaxy XR full-bleed buy page; scrolls from the hero to the accessories on hover">
+<div class="cov-win" style="left: 14%; top: 8.8%; width: 72%; bottom: 0; border-radius: 12px 12px 0 0; background: #FFFFFF; box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35)">
+<img class="cov-img" src="/assets/851db1692d501329bae06bb07e1720fc.jpg" alt="">
+</div>
+</div>
+<h3 style="margin: 24px 0 0; font-size: clamp(22px, 2vw, 28px); line-height: 1.25; letter-spacing: -0.02em; font-weight: 500; color: var(--fg)">Designing the Galaxy XR purchase journey</h3>
+<p style="margin: 10px 0 0; font-size: 18px; line-height: 1.5; color: var(--muted); text-wrap: pretty">Turning a new-category buy page into an immersive experience, validated by A/B testing.</p>
+</a>
+<a href="/shop-app/" class="work-card {{ shopPlay }}" data-cov="shop" style="display: flex; flex-direction: column; gap: 0; text-decoration: none; color: inherit">
+<div class="cov" style="background: #5B8266" role="img" aria-label="Three Samsung Shop App screens on a viridian green background; the For You tab scrolls on hover">
+<img src="/assets/cde312dd656d019ae36c608bcb816c9f.png" alt="" style="position: absolute; left: 4.44%; top: 24.9%; width: 28.9%; height: auto; filter: drop-shadow(0 22px 28px rgba(20, 40, 28, 0.36))">
+<img src="/assets/72b3f2e516bdf631a0f0639cfc50eea8.png" alt="" style="position: absolute; left: 66.7%; top: 24.9%; width: 28.9%; height: auto; filter: drop-shadow(0 22px 28px rgba(20, 40, 28, 0.36))">
+<div style="position: absolute; left: 35.8%; top: 14.1%; width: 28.4%; aspect-ratio: 447 / 915; filter: drop-shadow(0 22px 28px rgba(20, 40, 28, 0.36))">
+<img src="/assets/c15c2134ea9124f158bdbd7392841752.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%">
+<div class="cov-win" style="left: 3.4%; top: 1.6%; width: 92.4%; height: 96.4%; border-radius: 2.5% / 1.2%; background: #FFFFFF">
+<img class="cov-img" src="/assets/059f885a2b0d23af68fb12cb584c7aa5.png" alt="">
+</div>
+</div>
+</div>
+<h3 style="margin: 24px 0 0; font-size: clamp(22px, 2vw, 28px); line-height: 1.25; letter-spacing: -0.02em; font-weight: 500; color: var(--fg)">Redesigning the Samsung Shop App</h3>
+<p style="margin: 10px 0 0; font-size: 18px; line-height: 1.5; color: var(--muted); text-wrap: pretty">A 2023 concept: turning a catalog into a store that knows what you own and helps you choose.</p>
+</a>
+<a href="/playground/" class="work-card {{ pgPlay }}" data-video-card="play" style="display: flex; flex-direction: column; gap: 0; text-decoration: none; color: inherit">
+<div class="cov" style="background: #E6F4F0" role="img" aria-label="Danchu's Fish Run gameplay; plays on hover">
+<video class="cov-vid" src="/assets/371d905a32c0e3e4a38ef87f5bede386.mp4" poster="/assets/a61ddf463d00f186ec7b39e2781f7b65.jpg" muted loop playsinline preload="metadata" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover"></video>
+<img class="cov-poster" src="/assets/a61ddf463d00f186ec7b39e2781f7b65.jpg" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<span class="cov-play" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l12-7.5L7 4.5Z"></path></svg></span>
+</div>
+<h3 style="margin: 24px 0 0; font-size: clamp(22px, 2vw, 28px); line-height: 1.25; letter-spacing: -0.02em; font-weight: 500; color: var(--fg)">Playground</h3>
+<p style="margin: 10px 0 0; font-size: 18px; line-height: 1.5; color: var(--muted); text-wrap: pretty">Side projects, explorations, and things made for the fun of it.</p>
+</a>
+</div>
+</section>
+
+
+</div>
+
+<footer id="contact" style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 40px 40px; box-sizing: border-box">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 32px">
+<p style="margin: 0; font-size: 15px; line-height: 1.5; color: var(--muted)">© 2026 Ah Young Kim. Designed &amp; built with care.</p>
+<nav aria-label="Contact" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0 28px">
+<button type="button" class="foot-link" onClick="{{ copyEmail }}" title="Copy ayk9531@gmail.com" aria-label="Copy email address ayk9531@gmail.com" style="font-family: inherit; cursor: pointer; border: 0; background: transparent; padding: 0; display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; color: var(--muted); text-decoration: none">{{ emailLabel }}</button>
+<span role="status" aria-live="polite" class="sr">{{ copyStatus }}</span>
+<a class="foot-link" href="https://www.linkedin.com/in/ah-young/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; color: var(--muted); text-decoration: none">LinkedIn</a>
+<a class="foot-link" href="/assets/c9416fa5f0b87efc6c358e7c10e8d57b.pdf" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; color: var(--muted); text-decoration: none">Resume</a>
+</nav>
+</div>
+</footer>
+
+</div>
+</script>
+<script src="/js/idiomorph.min.js"></script>
+<script src="/js/dc-lite.js"></script>
+<script>
+class Component extends DCLogic {
+  state = { theme: 'light', copied: false, play: {} };
+  copyText(text) {
+    const fallback = () => {
+      try {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        const ok = document.execCommand('copy');
+        document.body.removeChild(ta);
+        return ok;
+      } catch (e) { return false; }
+    };
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        return navigator.clipboard.writeText(text).then(() => true, () => fallback());
+      }
+    } catch (e) {}
+    return Promise.resolve(fallback());
+  }
+  loadTheme() {
+    try {
+      const t = window.localStorage.getItem('ayk-theme');
+      if (t === 'dark' || t === 'light') this.setState({ theme: t });
+    } catch (e) {}
+  }
+  toggleThemeNow() {
+    const next = (this.state && this.state.theme) === 'dark' ? 'light' : 'dark';
+    this.setState({ theme: next });
+    try { window.localStorage.setItem('ayk-theme', next); } catch (e) {}
+  }
+  componentDidMount() {
+    this.loadTheme();
+    this.watchCovers();
+  }
+  bindVideoHover() {
+    try {
+      if (this._vidBound) return;
+      this._vidBound = true;
+      const root = this._content || document;
+      const vidOf = (el) => el && el.querySelector ? el.querySelector('video.cov-vid') : null;
+      root.addEventListener('mouseover', (e) => {
+        const card = e.target.closest && e.target.closest('[data-video-card]');
+        if (!card || (e.relatedTarget && card.contains(e.relatedTarget))) return;
+        const v = vidOf(card); if (v) { try { const pr = v.play(); if (pr && pr.catch) pr.catch(() => {}); } catch (err) {} }
+      });
+      root.addEventListener('mouseout', (e) => {
+        const card = e.target.closest && e.target.closest('[data-video-card]');
+        if (!card || (e.relatedTarget && card.contains(e.relatedTarget))) return;
+        const v = vidOf(card); if (v) { try { v.pause(); v.currentTime = 0; } catch (err) {} }
+      });
+      root.addEventListener('focusin', (e) => { const card = e.target.closest && e.target.closest('[data-video-card]'); const v = vidOf(card); if (v) { try { const pr = v.play(); if (pr && pr.catch) pr.catch(() => {}); } catch (err) {} } });
+      root.addEventListener('focusout', (e) => { const card = e.target.closest && e.target.closest('[data-video-card]'); const v = vidOf(card); if (v) { try { v.pause(); v.currentTime = 0; } catch (err) {} } });
+    } catch (e) {}
+  }
+  watchCovers() {
+    this.bindVideoHover();
+    // Touch devices have no hover: scroll each cover once when it comes into view, then ease back; play the video card while it is in view.
+    try {
+      if (!window.matchMedia || !matchMedia('(hover: none)').matches || !('IntersectionObserver' in window)) return;
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      this._seen = this._seen || {};
+      const root = this._content || document;
+      const els = root.querySelectorAll('[data-cov], [data-video-card]');
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.target.hasAttribute('data-video-card')) {
+            const v = e.target.querySelector('video.cov-vid');
+            const on = e.intersectionRatio >= 0.6;
+            if (v) { try { if (on) { const pr = v.play(); if (pr && pr.catch) pr.catch(() => {}); } else { v.pause(); } } catch (err) {} }
+            this.setState({ play: Object.assign({}, this.state.play, { pg: on }) });
+            return;
+          }
+          const k = e.target.getAttribute('data-cov');
+          if (!k || e.intersectionRatio < 0.6 || this._seen[k]) return;
+          this._seen[k] = true;
+          this.setState({ play: Object.assign({}, this.state.play, { [k]: true }) });
+          setTimeout(() => this.setState({ play: Object.assign({}, this.state.play, { [k]: false }) }), 11000);
+        });
+      }, { threshold: [0.6] });
+      els.forEach((el) => io.observe(el));
+    } catch (e) {}
+  }
+  renderVals() {
+    const themeNow = (this.state && this.state.theme) === 'dark' ? 'dark' : 'light';
+    const copied = !!(this.state && this.state.copied);
+    return {
+      theme: themeNow,
+      isDark: themeNow === 'dark',
+      isLight: themeNow !== 'dark',
+      themeLabel: themeNow === 'dark' ? 'Switch to light mode' : 'Switch to dark mode',
+      toggleTheme: () => this.toggleThemeNow(),
+      pm: this.props.pm ?? '#4B735B',
+      design: this.props.design ?? '#577D98',
+      accent: this.props.accent ?? '#4B735B',
+      watchPlay: this.state.play && this.state.play.watch ? 'in-view' : '',
+      pgPlay: this.state.play && this.state.play.pg ? 'in-view' : '',
+      shopPlay: this.state.play && this.state.play.shop ? 'in-view' : '',
+      xrPlay: this.state.play && this.state.play.xr ? 'in-view' : '',
+      emailLabel: copied ? 'Email copied ✓' : 'Email',
+      copyStatus: copied ? 'Email address copied to clipboard' : '',
+      copyEmail: () => {
+        this.copyText('ayk9531@gmail.com').then(() => {
+          this.setState({ copied: true });
+          clearTimeout(this._copyTimer);
+          this._copyTimer = setTimeout(() => this.setState({ copied: false }), 2000);
+        });
+      }
+    };
+  }
+}
+DCLite.mount(Component, document.getElementById('dc-tpl'), document.getElementById('app'), {"pm": "#4B735B", "design": "#577D98", "accent": "#4B735B"});
+</script>
+</body>
+</html>

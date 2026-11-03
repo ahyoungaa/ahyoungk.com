@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Playground · Ah Young Kim</title>
+<meta name="description" content="Portfolio of Ah Young Kim, Senior UX Designer at Samsung.">
+<link rel="canonical" href="https://ahyoungk.com/playground/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Playground · Ah Young Kim">
+<meta property="og:description" content="Portfolio of Ah Young Kim, Senior UX Designer at Samsung.">
+<meta property="og:url" content="https://ahyoungk.com/playground/">
+<meta property="og:image" content="https://ahyoungk.com/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400..700;1,400..700&amp;family=JetBrains+Mono:wght@400&amp;display=swap">
+<style>
+body{margin:0;background:#FFFFFF}
+.site{--bg:#FFFFFF;--fg:#14171A;--fg2:#2A2F35;--muted:#5B636B;--muted2:#6B737B;--line:#E4E7EA;--ph1:#EEF0F2;--ph2:#F7F8F9;--ph-fg:#4A5158;--hl:#F2F3F1;--hover:#4B735B;--btn-bg:#14171A;--btn-fg:#FFFFFF;--btn-sub:#C9CED3;--hi:#2B5BD7;--frame:#F4F4F2;--dot:#D5D9DD;--shadow:0 1px 2px rgba(20,23,26,0.04),0 12px 32px rgba(20,23,26,0.08);--shadow-hover:0 2px 4px rgba(20,23,26,0.06),0 20px 44px rgba(20,23,26,0.14);--scrim:rgba(20,23,26,0.42)}
+.site[data-theme="dark"]{--bg:#121416;--fg:#ECEEF0;--fg2:#D3D7DB;--muted:#A3ABB2;--muted2:#8D959C;--line:#2A2F34;--ph1:#1C1F22;--ph2:#23272B;--ph-fg:#A3ABB2;--hl:#22262A;--hover:#8DB89D;--btn-bg:#ECEEF0;--btn-fg:#121416;--btn-sub:#4A5158;--hi:#8FA9F2;--frame:#1C1F22;--dot:#3A4046;--shadow:0 1px 2px rgba(0,0,0,0.3),0 12px 32px rgba(0,0,0,0.4);--shadow-hover:0 2px 4px rgba(0,0,0,0.4),0 20px 44px rgba(0,0,0,0.55);--scrim:rgba(0,0,0,0.6)}
+body:has(.site[data-theme="dark"]){background:#121416}
+.site a{color:var(--fg)}.site a:hover{color:var(--hover)}
+.site .nav-link{color:var(--muted)}.site .nav-link[aria-current="page"]{color:var(--fg)}
+.theme-btn:hover{background:var(--hl)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.mono{font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace}
+.pg-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:28px}
+.pg-wide{grid-column:1/9}.pg-tall{grid-column:9/13}.pg-a{grid-column:1/5}.pg-b{grid-column:5/13}.pg-full{grid-column:1/13}
+.win-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+@media (max-width:860px){.pg-grid{grid-template-columns:1fr}.pg-wide,.pg-tall,.pg-a,.pg-b,.pg-full{grid-column:auto;grid-row:auto}}
+.win{font-family:inherit;color:inherit;text-align:left;padding:0;width:100%;border:1px solid var(--line);border-radius:14px;background:var(--bg);box-shadow:var(--shadow);overflow:hidden;cursor:pointer;display:flex;flex-direction:column;transition:transform .25s ease,box-shadow .25s ease}
+.win:hover{transform:translateY(-3px);box-shadow:var(--shadow-hover)}
+.win:focus-visible{outline:2px solid var(--hi);outline-offset:3px}
+.win-bar{position:relative;flex:0 0 auto;height:38px;display:flex;align-items:center;justify-content:center;background:var(--ph2);border-bottom:1px solid var(--line)}
+.win-dots{position:absolute;left:14px;top:0;bottom:0;display:flex;align-items:center;gap:7px}
+.win-dots i{width:10px;height:10px;border-radius:50%;background:var(--dot);display:block}
+.win-title{font-size:13px;color:var(--muted)}
+.win-body{flex:1 1 auto;min-height:0;position:relative;background:var(--ph1);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.ph-label{display:flex;flex-direction:column;align-items:center;gap:12px;color:var(--ph-fg);text-align:center;padding:24px}
+.ph-label span{font-size:13px;font-weight:600;letter-spacing:.1em}
+.ph-label small{font-size:14px;color:var(--muted);font-weight:400;letter-spacing:0}
+.lb{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;padding:24px;box-sizing:border-box}
+.lb-scrim{position:absolute;inset:0;background:var(--scrim);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.lb-win{position:relative;width:min(1120px,100%);max-height:calc(100vh - 48px);display:flex;flex-direction:column;border:1px solid var(--line);border-radius:16px;background:var(--bg);box-shadow:0 30px 80px rgba(0,0,0,0.35);overflow:hidden}
+.lb-close{position:absolute;left:14px;top:0;height:38px;display:flex;align-items:center;gap:7px;padding:0;border:0;background:transparent;cursor:pointer;font-family:inherit}
+.lb-close i{width:12px;height:12px;border-radius:50%;background:var(--dot);display:block}
+.lb-close i:first-child{background:#F0635A}
+.lb-close:hover i:first-child{background:#D9463C}
+.lb-close:focus-visible{outline:2px solid var(--hi);outline-offset:2px;border-radius:6px}
+.lb-grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;min-height:0;flex:1 1 auto}
+.lb-media{padding:40px;display:flex;align-items:center;justify-content:center;min-height:0;overflow:auto;background:var(--bg)}
+.lb-info{padding:44px 40px;border-left:1px solid var(--line);overflow:auto}
+@media (max-width:860px){.lb{padding:12px}.lb-grid{grid-template-columns:1fr}.lb-media{padding:20px}.lb-info{border-left:0;border-top:1px solid var(--line);padding:28px 24px}}
+.gal{display:flex;flex-direction:column;align-items:center;gap:18px;width:100%}
+.gal-stage{position:relative;display:flex;align-items:center;justify-content:center;width:100%}
+.gal-img{display:block;width:auto;height:min(calc(100vh - 300px),640px);aspect-ratio:3/4;object-fit:cover;max-width:100%;border-radius:12px;background:var(--ph1)}
+.gal-stage{min-height:360px}
+@media (max-width:860px){.gal-img{height:55vh}}
+.gal-nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;box-shadow:0 2px 8px rgba(0,0,0,0.12)}
+.gal-nav:hover{background:var(--hl)}.gal-nav:focus-visible{outline:2px solid var(--hi);outline-offset:2px}
+.gal-prev{left:-6px}.gal-next{right:-6px}
+.thumbs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.thumb{width:48px;height:62px;padding:0;border:0;border-radius:8px;overflow:hidden;cursor:pointer;background:var(--ph1);box-shadow:0 0 0 2px transparent;transition:opacity .2s ease,box-shadow .2s ease}
+.thumb img{display:block;width:100%;height:100%;object-fit:cover}
+.thumb.wide{width:64px;height:40px}
+.gal-img.wide{width:100%;height:auto;aspect-ratio:16/10;max-height:none}
+.site .lb-cta{color:var(--btn-fg)}.site .lb-cta:hover{color:var(--btn-fg);opacity:.85}
+.play-pill{position:absolute;right:16px;bottom:16px;display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px;border-radius:999px;background:rgba(20,23,26,0.78);color:#FFF;font-size:13px;font-weight:500;backdrop-filter:blur(6px)}
+.thumb:focus-visible{outline:2px solid var(--hi);outline-offset:2px}
+.card-layer{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .9s ease}
+.card-thumbs{position:absolute;left:0;right:0;bottom:16px;display:flex;justify-content:center;gap:6px;pointer-events:none}
+.card-thumbs img{width:34px;height:44px;object-fit:cover;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,0.25)}
+.lb-row{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px}
+.lb-row span:first-child{color:var(--muted)}
+html{scroll-behavior:smooth}
+</style>
+<style>#app{display:contents}</style>
+</head>
+<body>
+<div id="app"></div>
+<script type="text/x-dc-template" id="dc-tpl">
+<div id="top" class="site" data-theme="{{ theme }}" style="min-height: 100vh; background: var(--bg); color: var(--fg); font-family: 'Inter', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif; display: flex; flex-direction: column">
+
+<header style="border-bottom: 1px solid var(--line)">
+<div style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 40px; box-sizing: border-box; min-height: 64px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 24px">
+<a href="/" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; text-decoration: none">Ah Young Kim</a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 20px">
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0 32px">
+<a class="nav-link" href="/" aria-current="page" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; text-decoration: none">Work</a>
+<a class="nav-link" href="/about/" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; text-decoration: none">About</a>
+<a class="nav-link" href="/assets/c9416fa5f0b87efc6c358e7c10e8d57b.pdf" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; text-decoration: none">Resume</a>
+</nav>
+<span aria-hidden="true" style="width: 1px; height: 18px; background: var(--line)"></span>
+<button type="button" class="theme-btn" onClick="{{ toggleTheme }}" aria-label="{{ themeLabel }}" title="{{ themeLabel }}" style="font-family: inherit; cursor: pointer; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 999px; background: transparent; color: var(--fg); display: inline-flex; align-items: center; justify-content: center">
+<sc-if value="{{ isDark }}" hint-placeholder-val="{{ false }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.7"></circle><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4L6 18M18 6l1.4-1.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path></svg></sc-if>
+<sc-if value="{{ isLight }}" hint-placeholder-val="{{ true }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"></path></svg></sc-if>
+</button>
+</div>
+</div>
+</header>
+
+<main style="flex: 1 0 auto; width: 100%; max-width: 1200px; margin: 0 auto; padding: 40px 40px 0; box-sizing: border-box; display: flex; flex-direction: column; height: 863px">
+
+<a href="/" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: 15px; color: var(--muted); text-decoration: none">
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>All work</a>
+
+<h1 style="margin: 32px 0 0; font-size: clamp(32px, 3.6vw, 52px); line-height: 1.08; letter-spacing: -0.03em; font-weight: 500; text-wrap: balance">Playground</h1>
+<p style="margin: 20px 0 0; font-size: 21px; line-height: 1.55; color: var(--muted); text-wrap: pretty">I love tinkering, exploring new ideas, and learning what actually works. Click anything to take a closer look.</p>
+
+<div class="pg-grid" style="margin-top: 56px">
+
+<button type="button" class="win pg-wide" onClick="{{ open0 }}" aria-label="Open Danchu's Fish Run">
+<div class="win-bar"><span class="win-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="win-title mono">danchu-fish-run.game</span></div>
+<div class="win-body" style="aspect-ratio: 16 / 10">
+<video src="{{ gameClip }}" poster="{{ gameCover }}" autoplay="" muted="" loop="" playsinline="" aria-label="Gameplay of Danchu's Fish Run, a pastel watercolor runner game" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover"></video>
+<span class="play-pill" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l12-7.5L7 4.5Z"></path></svg>Playable</span>
+</div>
+</button>
+
+<button type="button" class="win pg-tall" onClick="{{ open1 }}" aria-label="Open Config 2025 recap">
+<div class="win-bar"><span class="win-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="win-title mono">config-2025.mov</span></div>
+<div class="win-body" style="aspect-ratio: 3 / 4">
+<sc-if value="{{ hasClip }}" hint-placeholder-val="{{ false }}"><video class="card-layer" src="{{ clipSrc }}" poster="{{ clipPoster }}" autoplay="" muted="" loop="" playsinline="" aria-hidden="true" style="opacity: {{ cardVidOp }}"></video></sc-if>
+<sc-for list="{{ cardPhotos }}" as="p" hint-placeholder-count="6"><img class="card-layer" src="{{ p.src }}" alt="" style="opacity: {{ p.op }}"></sc-for>
+<div class="card-thumbs" aria-hidden="true">
+<sc-for list="{{ cardThumbs }}" as="t" hint-placeholder-count="6"><img src="{{ t.src }}" alt="" style="opacity: {{ t.op }}"></sc-for>
+</div>
+</div>
+</button>
+
+
+
+
+
+
+
+</div>
+
+</main>
+
+<footer style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 96px 40px 64px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 40px">
+<span style="font-size: 15px; color: var(--muted)">© 2026 Ah Young Kim</span>
+<div style="display: flex; flex-wrap: wrap; gap: 4px 32px; font-size: 15px">
+<a href="mailto:ayk9531@gmail.com" style="display: inline-flex; align-items: center; min-height: 44px">ayk9531@gmail.com</a>
+<a href="https://www.linkedin.com/in/ah-young/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; min-height: 44px">LinkedIn <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M4 10L10 4M5 4h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+</div>
+</footer>
+
+<sc-if value="{{ isOpen }}" hint-placeholder-val="{{ false }}">
+<div class="lb" role="dialog" aria-modal="true" aria-label="{{ mTitle }}">
+<div class="lb-scrim" onClick="{{ close }}"></div>
+<div class="lb-win">
+<div class="win-bar">
+<button type="button" class="lb-close" onClick="{{ close }}" aria-label="Close"><i></i><i></i><i></i></button>
+<span class="win-title mono">{{ mFile }}</span>
+</div>
+<div class="lb-grid">
+<div class="lb-media">
+<sc-if value="{{ isGallery }}" hint-placeholder-val="{{ true }}">
+<div class="gal">
+<div class="gal-stage">
+<button type="button" class="gal-nav gal-prev" onClick="{{ prev }}" aria-label="Previous photo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+<sc-if value="{{ gIsVideo }}" hint-placeholder-val="{{ true }}"><video class="gal-img {{ gImgClass }}" src="{{ gSrc }}" poster="{{ gPoster }}" autoplay="" muted="" loop="" playsinline="" controls="" aria-label="{{ gAlt }}"></video></sc-if>
+<sc-if value="{{ gIsImage }}" hint-placeholder-val="{{ false }}"><img class="gal-img {{ gImgClass }}" src="{{ gSrc }}" alt="{{ gAlt }}"></sc-if>
+<button type="button" class="gal-nav gal-next" onClick="{{ next }}" aria-label="Next photo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+</div>
+<div class="thumbs" role="tablist" aria-label="Photos">
+<sc-for list="{{ thumbs }}" as="t" hint-placeholder-count="5">
+<button type="button" class="thumb {{ t.cls }}" role="tab" onClick="{{ t.pick }}" aria-selected="{{ t.on }}" aria-label="{{ t.label }}" style="opacity: {{ t.op }}; box-shadow: 0 0 0 2px {{ t.ring }}"><img src="{{ t.src }}" alt=""></button>
+</sc-for>
+</div>
+<div class="mono" style="font-size: 13px; color: var(--muted)">{{ gCount }}</div>
+</div>
+</sc-if>
+<sc-if value="{{ isSingle }}" hint-placeholder-val="{{ false }}">
+<div style="width: 100%; aspect-ratio: 4 / 3; max-height: calc(100vh - 220px); border-radius: 12px; background: var(--ph1); display: flex; align-items: center; justify-content: center">
+<div class="ph-label"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="1.5"></rect><path d="M10 9.5v5l4.5-2.5L10 9.5Z" fill="currentColor"></path></svg><span>{{ mPh }}</span><small>Drop a video, GIF, or image here</small></div>
+</div>
+</sc-if>
+</div>
+<div class="lb-info">
+<h2 style="margin: 0; font-size: 26px; line-height: 1.2; letter-spacing: -0.02em; font-weight: 500">{{ mTitle }}</h2>
+<div style="margin-top: 24px">
+<div class="lb-row"><span>Tools</span><span style="text-align: right">{{ mTools }}</span></div>
+</div>
+<p style="margin: 24px 0 0; font-size: 16px; line-height: 1.6; color: var(--fg2); text-wrap: pretty">{{ mDesc }}</p>
+<sc-if value="{{ mHasLink }}" hint-placeholder-val="{{ false }}"><a class="lb-cta" href="{{ mLink }}" target="_blank" rel="noopener noreferrer" style="margin-top: 28px; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 20px; border-radius: 999px; background: var(--btn-bg); font-size: 15px; font-weight: 500; text-decoration: none">{{ mLinkLabel }} <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M4 10L10 4M5 4h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a></sc-if>
+</div>
+</div>
+</div>
+</div>
+</sc-if>
+
+</div>
+</script>
+<script src="/js/idiomorph.min.js"></script>
+<script src="/js/dc-lite.js"></script>
+<script>
+class Component extends DCLogic {
+  state = { theme: 'light', open: -1, slide: 0, cardSlide: 0 };
+  items() {
+    return [
+      { file: 'danchu-fish-run.game', title: "Danchu's Fish Run", tools: 'Claude · Three.js', year: '2026', ph: '', kind: 'gallery', wide: true,
+        link: 'https://claude.ai/artifact/RfmJWPz6ZsJWk5MtihQ8Ws', linkLabel: 'Play the game',
+        desc: 'A tiny endless runner starring my Siamese cat, Danchu, painted in the soft watercolor of his portrait. Jump the sea plants, catch fish, and hit 50 to set off the zoomies. Built for fun to see how far I could push a browser game without a game engine.',
+        media: [
+          { type: 'video', src: '/assets/1c10a33ac499f2387235bb1cd7406db7.mp4', poster: '/assets/a61ddf463d00f186ec7b39e2781f7b65.jpg', alt: 'A full run: Danchu catching fish, dodging turtles and hitting the zoomies' },
+          { type: 'image', src: '/assets/cedcc19c2348c5b9bb1f9ba5015f069b.jpg', alt: 'Start screen with Danchu and the rules' },
+          { type: 'image', src: '/assets/d6329c9e5fdc97091bb75df5b3e47c6c.jpg', alt: 'Danchu running past a school of fish' },
+          { type: 'image', src: '/assets/8c3fe8c70ec9431ca15f7bcdce90c0ee.jpg', alt: 'Game over card: Danchu caught 6 fish' }
+        ] },
+      { file: 'config-2025.mov', title: 'Config 2025 Recap', tools: 'Figma Motion · Polaroid', year: '2025', ph: '', kind: 'gallery',
+        desc: 'My first time at Config! Two days of talks, giant inflatables, and Polaroids with the team — and I came home with far too much free merch :)',
+        media: [
+          { type: 'image', src: '/assets/7dd2ee321bcf07d4120b97a8667cae4a.jpg', alt: 'Config badge and a Polaroid of me, held up in front of yellow yarrow' },
+          { type: 'image', src: '/assets/c334f91628b8134c12c25a0060aef93f.jpg', alt: 'Team photo in front of the giant Figma logo' },
+          { type: 'image', src: '/assets/b2b8f470680b76e3d89336bb4157aec0.jpg', alt: 'Config scrapbook page with Polaroids of the Samsung design team' },
+          { type: 'image', src: '/assets/635d7b8d5a6f8bcffbaacd2288befb26.jpg', alt: 'Config banner across the Moscone Center facade' },
+          { type: 'image', src: '/assets/1241b3bd668e417d88d05cda0401330a.jpg', alt: 'Talk on the history of computer animation' },
+          { type: 'image', src: '/assets/a07252556ab6bc70673764ed5f160b14.jpg', alt: 'Rolls of Introvert, Extrovert, Ambivert, Mentor and Friends of Figma stickers' }
+        ] },
+      { file: 'danchu-moods.stickers', title: 'Danchu Moods', tools: 'SVG · Illustration', year: '2026', ph: '', kind: 'gallery',
+        desc: 'Nine moods, one cat. A sticker pack drawn from the same little SVG Danchu that walks across my About page, with the die-cut border done as an SVG filter so every sticker is still vector. Loaf, zoomies, judging you, the 3 a.m. yell, and the rest of the daily cycle.',
+        media: [
+          { type: 'image', src: '/assets/910a8f58f2bac72e1a7a7cc1ccd12430.jpg', alt: 'The full Danchu Moods sticker sheet' },
+          { type: 'image', src: '/assets/aac6d86c2e2a364a28959e0a5fe773df.jpg', alt: 'Sticker: Loaf' },
+          { type: 'image', src: '/assets/1f3a6a2ae5093c45cd239e8f7a1df322.jpg', alt: 'Sticker: Zoomies' },
+          { type: 'image', src: '/assets/b3969ca8a6ecca1905a4a89413f53f9f.jpg', alt: 'Sticker: Judging you' },
+          { type: 'image', src: '/assets/5707fa57f6e3ec321c0bf5f15c837b3f.jpg', alt: 'Sticker: 3 a.m. yell' },
+          { type: 'image', src: '/assets/80855abc0d3248541d2295b715cd30b5.jpg', alt: 'Sticker: Box season' },
+          { type: 'image', src: '/assets/b8c84ba466e5d2d9ad7e3615d71e48eb.jpg', alt: 'Sticker: Sunbeam' },
+          { type: 'image', src: '/assets/ac7a5d4823e1fb9531ec2d049daf797a.jpg', alt: 'Sticker: Feed me' },
+          { type: 'image', src: '/assets/a20b36d40e9d4c43c49ca6f5228a5331.jpg', alt: 'Sticker: Post-Config' },
+          { type: 'image', src: '/assets/8fd25e740009977424c79e9d001c2266.jpg', alt: 'Sticker: Fish Run champ' }
+        ] },
+      { file: 'fish-run-poster.print', title: 'Fish Run Arcade Poster', tools: 'SVG · Poster', year: '2026', ph: '', kind: 'gallery', wide: true,
+        link: 'https://claude.ai/artifact/RfmJWPz6ZsJWk5MtihQ8Ws', linkLabel: 'Play the game',
+        desc: 'A one-sheet for the game, in the spirit of an arcade cabinet poster: Danchu mid-leap, a school of fish, and a coin slot that costs nothing. The hi-score is real. It is 6.',
+        media: [
+          { type: 'image', src: '/assets/ccf41c6117df682c8d4de970fdafc565.jpg', alt: 'Fish Run arcade poster' }
+        ] },
+      { file: 'danchu-goes-home.stickers', title: 'Danchu Goes Home', tools: 'SVG · Illustration', year: '2026', ph: '', kind: 'gallery', wide: true,
+        desc: 'Five stickers for the five places I have called home, in the order I lived there: a hanok roof in Korea, a lantern in China, papel picado in Mexico, a hat in Texas, and the Golden Gate in San Francisco. A companion to the Homes timeline on my About page.',
+        media: [
+          { type: 'image', src: '/assets/05fc0fe0311974cafd6ee7d3501f7c34.jpg', alt: 'Danchu in Korea · born here' },
+          { type: 'image', src: '/assets/6408a7f9395b4669b52ef385158da880.jpg', alt: 'Danchu in China' },
+          { type: 'image', src: '/assets/9f2fc3cbf0a74eaa1748b5d0f0fd64d6.jpg', alt: 'Danchu in Mexico' },
+          { type: 'image', src: '/assets/7660f192b43151bd08898205184a899d.jpg', alt: 'Danchu in Texas' },
+          { type: 'image', src: '/assets/16c683e20db9824de4a37dbd7b76578e.jpg', alt: 'Danchu in San Francisco · now' }
+        ] }
+    ];
+  }
+  openItem(i) {
+    this.setState({ open: i, slide: 0 });
+    try { document.body.style.overflow = 'hidden'; } catch (e) {}
+    this.startAuto();
+  }
+  closeItem() {
+    this.stopAuto();
+    this.setState({ open: -1 });
+    try { document.body.style.overflow = ''; } catch (e) {}
+  }
+  startAuto() {
+    this.stopAuto();
+    const it = this.items()[this.state.open];
+    if (!it || it.kind !== 'gallery') return;
+    this._auto = setInterval(() => { const cur = it.media[this.state.slide]; if (cur && cur.type === 'video') return; this.step(1, true); }, 4000);
+  }
+  stopAuto() {
+    if (this._auto) { clearInterval(this._auto); this._auto = null; }
+  }
+  step(d, auto) {
+    const it = this.items()[this.state.open];
+    if (!it || it.kind !== 'gallery') return;
+    if (!auto) this.stopAuto();
+    const n = it.media.length;
+    this.setState({ slide: ((this.state.slide + d) % n + n) % n });
+  }
+  goTo(i) {
+    this.stopAuto();
+    this.setState({ slide: i });
+  }
+  onKey(e) {
+    if (this.state.open < 0) return;
+    if (e.key === 'Escape') this.closeItem();
+    else if (e.key === 'ArrowLeft') this.step(-1);
+    else if (e.key === 'ArrowRight') this.step(1);
+  }
+  componentDidMount() {
+    this.loadTheme();
+    this._key = (e) => this.onKey(e);
+    try { window.addEventListener('keydown', this._key); } catch (e) {}
+    const n = this.items()[1].media.length;
+    this._card = setInterval(() => this.setState({ cardSlide: ((this.state.cardSlide || 0) + 1) % n }), 3500);
+  }
+  componentWillUnmount() {
+    this.stopAuto();
+    if (this._card) clearInterval(this._card);
+    try { window.removeEventListener('keydown', this._key); document.body.style.overflow = ''; } catch (e) {}
+  }
+  loadTheme() {
+    try {
+      const t = window.localStorage.getItem('ayk-theme');
+      if (t === 'dark' || t === 'light') this.setState({ theme: t });
+    } catch (e) {}
+  }
+  toggleThemeNow() {
+    const next = (this.state && this.state.theme) === 'dark' ? 'light' : 'dark';
+    this.setState({ theme: next });
+    try { window.localStorage.setItem('ayk-theme', next); } catch (e) {}
+  }
+  renderVals() {
+    const themeNow = (this.state && this.state.theme) === 'dark' ? 'dark' : 'light';
+    const items = this.items();
+    const open = this.state.open;
+    const it = open >= 0 ? items[open] : null;
+    const gallery = items[1];
+    const slide = this.state.slide || 0;
+    const cardSlide = this.state.cardSlide || 0;
+    const isGallery = !!(it && it.kind === 'gallery');
+    const media = isGallery ? it.media : [];
+    const cur = media[slide] || null;
+    const thumbSrc = (m) => (m.type === 'video' ? m.poster : m.src);
+    const vidIdx = gallery.media.findIndex((m) => m.type === 'video');
+    const vid = vidIdx >= 0 ? gallery.media[vidIdx] : null;
+    return {
+      theme: themeNow,
+      isDark: themeNow === 'dark',
+      isLight: themeNow !== 'dark',
+      themeLabel: themeNow === 'dark' ? 'Switch to light mode' : 'Switch to dark mode',
+      toggleTheme: () => this.toggleThemeNow(),
+      open0: () => this.openItem(0),
+      open1: () => this.openItem(1),
+      open2: () => this.openItem(2),
+      open3: () => this.openItem(3),
+      open4: () => this.openItem(4),
+      close: () => this.closeItem(),
+      prev: () => this.step(-1),
+      next: () => this.step(1),
+      hasClip: !!vid,
+      clipSrc: vid ? vid.src : '',
+      clipPoster: vid ? vid.poster : '',
+      cardVidOp: vid && cardSlide === vidIdx ? '1' : '0',
+      cardPhotos: gallery.media.map((m, i) => ({ m, i })).filter((x) => x.m.type !== 'video').map((x) => ({ src: x.m.src, op: cardSlide === x.i ? '1' : '0' })),
+      cardThumbs: gallery.media.map((m, i) => ({ src: thumbSrc(m), op: cardSlide === i ? '1' : '0.6' })),
+      isOpen: !!it,
+      isGallery,
+      isSingle: !!it && !isGallery,
+      mFile: it ? it.file : '',
+      mTitle: it ? it.title : '',
+      mTools: it ? it.tools : '',
+      mYear: it ? it.year : '',
+      mDesc: it ? it.desc : '',
+      mPh: it ? it.ph : '',
+      mHasLink: !!(it && it.link),
+      mLink: it && it.link ? it.link : '#',
+      mLinkLabel: it && it.linkLabel ? it.linkLabel : 'Open',
+      gImgClass: it && it.wide ? 'wide' : '',
+      gameCover: items[0].media[0].poster,
+      gameClip: '/assets/371d905a32c0e3e4a38ef87f5bede386.mp4',
+      gSrc: cur ? cur.src : '',
+      gPoster: cur && cur.type === 'video' ? cur.poster : '',
+      gIsVideo: !!(cur && cur.type === 'video'),
+      gIsImage: !!(cur && cur.type !== 'video'),
+      gAlt: cur ? (cur.alt || ('Photo ' + (slide + 1) + ' of ' + media.length)) : '',
+      gCount: isGallery ? ((slide + 1) + ' / ' + media.length) : '',
+      thumbs: media.map((m, i) => ({
+        src: thumbSrc(m),
+        on: i === slide,
+        op: i === slide ? '1' : '0.55',
+        ring: i === slide ? 'var(--fg)' : 'transparent',
+        label: (m.type === 'video' ? 'Video' : 'Photo') + ' ' + (i + 1),
+        cls: it && it.wide ? 'wide' : '',
+        pick: () => this.goTo(i)
+      }))
+    };
+  }
+}
+DCLite.mount(Component, document.getElementById('dc-tpl'), document.getElementById('app'), {});
+</script>
+</body>
+</html>

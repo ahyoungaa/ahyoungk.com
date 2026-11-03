@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Optimizing the Galaxy Watch8 buy flow · Ah Young Kim</title>
+<meta name="description" content="Portfolio of Ah Young Kim, Senior UX Designer at Samsung.">
+<link rel="canonical" href="https://ahyoungk.com/watch8/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Optimizing the Galaxy Watch8 buy flow · Ah Young Kim">
+<meta property="og:description" content="Portfolio of Ah Young Kim, Senior UX Designer at Samsung.">
+<meta property="og:url" content="https://ahyoungk.com/watch8/">
+<meta property="og:image" content="https://ahyoungk.com/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400..700;1,400..700&amp;family=JetBrains+Mono:wght@400&amp;display=swap">
+<style>
+body{margin:0;background:#FFFFFF}
+.site{--bg:#FFFFFF;--fg:#14171A;--fg2:#2A2F35;--muted:#5B636B;--muted2:#6B737B;--line:#E4E7EA;--ph1:#EEF0F2;--ph2:#F7F8F9;--ph-fg:#4A5158;--hl:#F2F3F1;--hover:#4B735B;--btn-bg:#14171A;--btn-fg:#FFFFFF;--btn-sub:#C9CED3;--hi:#2B5BD7;--frame:#F4F4F2;--up:#2E7A4E;--up-bg:#E7F3EC;--down:#2B5BD7;--down-bg:#E8EEFC;--neg:#C2412D}
+.site[data-theme="dark"]{--bg:#121416;--fg:#ECEEF0;--fg2:#D3D7DB;--muted:#A3ABB2;--muted2:#8D959C;--line:#2A2F34;--ph1:#1C1F22;--ph2:#23272B;--ph-fg:#A3ABB2;--hl:#22262A;--hover:#8DB89D;--btn-bg:#ECEEF0;--btn-fg:#121416;--btn-sub:#4A5158;--hi:#8FA9F2;--frame:#1C1F22;--up:#7CC79B;--up-bg:#1D2B23;--down:#8FA9F2;--down-bg:#1E2436;--neg:#F08A77}
+body:has(.site[data-theme="dark"]){background:#121416}
+.site a{color:var(--fg)}.site a:hover{color:var(--hover)}
+.site .nav-link{color:var(--muted)}.site .nav-link[aria-current="page"]{color:var(--fg)}
+.theme-btn:hover{background:var(--hl)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.toc{position:sticky;top:0;z-index:5}
+.toc-row{scrollbar-width:none}.toc-row::-webkit-scrollbar{display:none}
+.cmp-range{-webkit-appearance:none;appearance:none;background:transparent;margin:0}
+.cmp-range::-webkit-slider-thumb{-webkit-appearance:none;width:44px;height:100%;background:transparent;cursor:ew-resize}
+.cmp-range::-moz-range-thumb{width:44px;height:100%;background:transparent;border:0;cursor:ew-resize}
+.cmp-range:focus-visible{outline:2px solid var(--hi);outline-offset:4px}
+.overlay-scroll{scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.45) transparent}
+.overlay-scroll::-webkit-scrollbar{width:6px}.overlay-scroll::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.45);border-radius:999px}
+.overlay-scroll:focus-visible{outline:2px solid #FFFFFF;outline-offset:4px}
+html{scroll-behavior:smooth}
+</style>
+<style>#app{display:contents}</style>
+</head>
+<body>
+<div id="app"></div>
+<script type="text/x-dc-template" id="dc-tpl">
+<div id="top" class="site" data-theme="{{ theme }}" style="min-height: 100vh; background: var(--bg); color: var(--fg); font-family: 'Inter', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif; display: flex; flex-direction: column">
+
+<header style="border-bottom: 1px solid var(--line)">
+<div style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 40px; box-sizing: border-box; min-height: 64px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 24px">
+<a href="/" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; text-decoration: none">Ah Young Kim</a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 20px">
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0 32px">
+<a class="nav-link" href="/" aria-current="page" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; text-decoration: none">Work</a>
+<a class="nav-link" href="/about/" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; text-decoration: none">About</a>
+<a class="nav-link" href="/assets/c9416fa5f0b87efc6c358e7c10e8d57b.pdf" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; text-decoration: none">Resume</a>
+</nav>
+<span aria-hidden="true" style="width: 1px; height: 18px; background: var(--line)"></span>
+<button type="button" class="theme-btn" onClick="{{ toggleTheme }}" aria-label="{{ themeLabel }}" title="{{ themeLabel }}" style="font-family: inherit; cursor: pointer; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 999px; background: transparent; color: var(--fg); display: inline-flex; align-items: center; justify-content: center">
+<sc-if value="{{ isDark }}" hint-placeholder-val="{{ false }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.7"></circle><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4L6 18M18 6l1.4-1.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path></svg></sc-if>
+<sc-if value="{{ isLight }}" hint-placeholder-val="{{ true }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"></path></svg></sc-if>
+</button>
+</div>
+</div>
+</header>
+
+<main style="flex: 1 0 auto; width: 100%; max-width: 1200px; margin: 0 auto; padding: 40px 40px 0; box-sizing: border-box; display: flex; flex-direction: column">
+
+<a href="/" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: 15px; color: var(--muted); text-decoration: none">
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>All work</a>
+
+<h1 style="margin: 32px 0 0; font-size: clamp(32px, 3.6vw, 52px); line-height: 1.08; letter-spacing: -0.03em; font-weight: 500; text-wrap: balance">Optimizing the Galaxy Watch8 buy flow</h1>
+<p style="margin: 20px 0 0; font-size: 21px; line-height: 1.55; color: var(--muted); text-wrap: pretty">Reducing cognitive friction in the purchase journey by rethinking CTA hierarchy, band selection clarity, and contextual decision support.</p>
+
+<img src="/assets/596637f3f2dc2af7547dec691bdb333b.jpg" alt="Galaxy Watch &quot;Discover your band&quot; overlay showing the Marine Band" style="margin-top: 48px; display: block; width: 100%; aspect-ratio: 2374 / 1674; object-fit: cover; border-radius: 24px; background: #AABEDE">
+
+<div style="margin-top: 56px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 28px 40px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted)">Role</div>
+<div style="font-size: 17px; line-height: 1.45">Senior UX Designer</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted)">Company</div>
+<div style="font-size: 17px; line-height: 1.45">Samsung Electronics</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted)">Team</div>
+<div style="font-size: 17px; line-height: 1.45">Design, Product, Engineering</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted)">Timeline</div>
+<div style="font-size: 17px; line-height: 1.45">8 weeks · Shipped 2025</div>
+</div>
+</div>
+
+<div style="margin-top: 80px; display: flex; flex-direction: column; gap: 56px">
+<nav class="toc" aria-label="Contents" style="background: var(--bg); border-bottom: 1px solid var(--line); padding: 10px 0">
+<div class="toc-row" style="display: flex; align-items: center; gap: 4px; overflow-x: auto">
+<sc-for list="{{ toc }}" as="item" hint-placeholder-count="6">
+<a href="{{ item.href }}" onClick="{{ item.pick }}" aria-current="{{ item.current }}" style="flex: 0 0 auto; display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; text-decoration: none; font-size: 15px; white-space: nowrap; background: {{ item.bg }}; color: {{ item.fg }}">{{ item.label }}</a>
+</sc-for>
+</div>
+</nav>
+<div ref="{{ contentRef }}" style="min-width: 0; display: flex; flex-direction: column; gap: 96px">
+<section id="overview" style="scroll-margin-top: 96px; display: flex; flex-direction: column">
+<div style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted)">Overview</div>
+<h2 style="margin: 16px 0 0; font-size: clamp(24px, 2.2vw, 32px); line-height: 1.2; letter-spacing: -0.02em; font-weight: 500; text-wrap: balance">The buy flow didn't need a redesign. It needed clarity.</h2>
+<div style="margin-top: 32px; display: flex; flex-direction: column; gap: 24px; font-size: 19px; line-height: 1.75; color: var(--muted)">
+<p style="margin: 0; text-wrap: pretty">The Galaxy Watch8 buy page is where shoppers configure size, band type, band size, and connectivity before checkout. Analytics showed the configuration step was where the most people hesitated and left, and NPS comments kept describing the same confusion.</p>
+<p style="margin: 0; text-wrap: pretty">I led design and research over eight weeks, working with product, data, engineering, and business partners. The goal was narrow on purpose: make every selector look and behave the same way, and give shoppers the context they were leaving the page to find.</p>
+</div>
+</section>
+<section id="problem" style="scroll-margin-top: 96px; padding-top: 56px; border-top: 1px solid var(--line); display: flex; flex-direction: column">
+<div style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted)">Problem</div>
+<h2 style="margin: 16px 0 0; font-size: clamp(24px, 2.2vw, 32px); line-height: 1.2; letter-spacing: -0.02em; font-weight: 500; text-wrap: balance">Three issues undermining the configuration step</h2>
+<div style="margin-top: 32px; display: flex; flex-direction: column; gap: 24px; font-size: 19px; line-height: 1.75; color: var(--muted)">
+<p style="margin: 0; text-wrap: pretty">Identified through heuristic evaluation, analytics review, and NPS feedback analysis.</p>
+<ol style="margin: 0; padding: 0; list-style: none; border-bottom: 1px solid var(--line)">
+<li style="display: flex; gap: 20px; padding: 24px 0; border-top: 1px solid var(--line)">
+<span aria-hidden="true" style="flex: 0 0 auto; width: 36px; height: 36px; border-radius: 999px; border: 1px solid var(--line); display: inline-flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 500; color: var(--fg)">1</span>
+<div style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 4px">
+<h3 style="margin: 0; font-size: 20px; line-height: 1.35; letter-spacing: -0.01em; font-weight: 500; color: var(--fg)">Cognitive load</h3>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: var(--muted); text-wrap: pretty">Inconsistent CTA formats create visual noise and unnecessary friction.</p>
+</div>
+</li>
+<li style="display: flex; gap: 20px; padding: 24px 0; border-top: 1px solid var(--line)">
+<span aria-hidden="true" style="flex: 0 0 auto; width: 36px; height: 36px; border-radius: 999px; border: 1px solid var(--line); display: inline-flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 500; color: var(--fg)">2</span>
+<div style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 4px">
+<h3 style="margin: 0; font-size: 20px; line-height: 1.35; letter-spacing: -0.01em; font-weight: 500; color: var(--fg)">Selection clarity</h3>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: var(--muted); text-wrap: pretty">Band type differences are not communicated clearly.</p>
+</div>
+</li>
+<li style="display: flex; gap: 20px; padding: 24px 0; border-top: 1px solid var(--line)">
+<span aria-hidden="true" style="flex: 0 0 auto; width: 36px; height: 36px; border-radius: 999px; border: 1px solid var(--line); display: inline-flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 500; color: var(--fg)">3</span>
+<div style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 4px">
+<h3 style="margin: 0; font-size: 20px; line-height: 1.35; letter-spacing: -0.01em; font-weight: 500; color: var(--fg)">Insufficient context</h3>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: var(--muted); text-wrap: pretty">Configuration decisions are required without supporting information.</p>
+</div>
+</li>
+</ol>
+</div>
+</section>
+<section id="research" style="scroll-margin-top: 96px; padding-top: 56px; border-top: 1px solid var(--line); display: flex; flex-direction: column">
+<div style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted)">Research</div>
+<h2 style="margin: 16px 0 0; font-size: clamp(24px, 2.2vw, 32px); line-height: 1.2; letter-spacing: -0.02em; font-weight: 500; text-wrap: balance">Building the case for change</h2>
+<p style="margin: 20px 0 0; font-size: 19px; line-height: 1.7; color: var(--muted); text-wrap: pretty">Three methods pointed to the same three problems.</p>
+
+<div style="margin-top: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 40px 48px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 13px; color: var(--muted2)">Evaluative</span>
+<h3 style="margin: 0; font-size: 20px; line-height: 1.3; letter-spacing: -0.01em; font-weight: 500; color: var(--fg)">Competitive analysis</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: var(--muted); text-wrap: pretty">Competitors use one selector pattern. Samsung mixed three.</p>
+<p style="margin: 6px 0 0; display: flex; gap: 8px; font-size: 16px; line-height: 1.5; font-weight: 500; color: var(--fg)"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" style="flex: 0 0 auto; margin-top: 5px"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Adopt one consistent card format</span></p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 13px; color: var(--muted2)">Quantitative</span>
+<h3 style="margin: 0; font-size: 20px; line-height: 1.3; letter-spacing: -0.01em; font-weight: 500; color: var(--fg)">Analytics review</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: var(--muted); text-wrap: pretty">Band type had the longest hesitation and the sharpest exits.</p>
+<p style="margin: 6px 0 0; display: flex; gap: 8px; font-size: 16px; line-height: 1.5; font-weight: 500; color: var(--fg)"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" style="flex: 0 0 auto; margin-top: 5px"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Make band type the top priority</span></p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 13px; color: var(--muted2)">Quantitative</span>
+<h3 style="margin: 0; font-size: 20px; line-height: 1.3; letter-spacing: -0.01em; font-weight: 500; color: var(--fg)">NPS analysis</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: var(--muted); text-wrap: pretty">Shoppers named the same three complaints, unprompted.</p>
+<p style="margin: 6px 0 0; display: flex; gap: 8px; font-size: 16px; line-height: 1.5; font-weight: 500; color: var(--fg)"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" style="flex: 0 0 auto; margin-top: 5px"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Confirmed all three problems</span></p>
+</div>
+</div>
+
+<div style="margin-top: 80px; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 32px 64px">
+<div style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 13px; color: var(--muted2)">Competitive benchmark</span>
+<h3 style="margin: 0; font-size: 22px; line-height: 1.3; letter-spacing: -0.015em; font-weight: 500; color: var(--fg); text-wrap: balance">Band selector patterns across the category</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: var(--muted); text-wrap: pretty">Apple met every criterion. Samsung met none.</p>
+</div>
+<div style="flex: 1.7 1 420px; min-width: 0; overflow-x: auto">
+<table style="width: 100%; min-width: 420px; border-collapse: collapse">
+<caption class="sr">How Apple Watch, Pixel Watch and Samsung (before) meet each band selector criterion</caption>
+<thead><tr>
+<th scope="col" style="padding: 0 8px 14px 0; text-align: left; font-size: 14px; font-weight: 400; color: var(--muted)">Criteria</th>
+<th scope="col" style="padding: 0 8px 14px; text-align: center; font-size: 14px; font-weight: 400; white-space: nowrap; color: var(--muted)">Apple Watch</th>
+<th scope="col" style="padding: 0 8px 14px; text-align: center; font-size: 14px; font-weight: 400; white-space: nowrap; color: var(--muted)">Pixel Watch</th>
+<th scope="col" style="padding: 0 8px 14px; text-align: center; font-size: 14px; font-weight: 400; white-space: nowrap; color: var(--hi)">Samsung (before)</th>
+</tr></thead>
+<tbody>
+<tr>
+<th scope="row" style="padding: 16px 8px 16px 0; border-top: 1px solid var(--line); text-align: left; font-size: 17px; font-weight: 400; color: var(--fg)">CTA consistency</th>
+<td style="padding: 16px 8px; border-top: 1px solid var(--line); text-align: center; vertical-align: middle; color: var(--muted)"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="sr">Meets</span></td>
+<td style="padding: 16px 8px; border-top: 1px solid var(--line); text-align: center; vertical-align: middle; color: var(--muted)"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3.5 7h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg><span class="sr">Partly meets</span></td>
+<td style="padding: 16px 8px; border-top: 1px solid var(--line); text-align: center; vertical-align: middle; color: var(--hi)"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3.5 3.5l7 7M10.5 3.5l-7 7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path></svg><span class="sr">Does not meet</span></td>
+</tr>
+<tr>
+<th scope="row" style="padding: 16px 8px 16px 0; border-top: 1px solid var(--line); text-align: left; font-size: 17px; font-weight: 400; color: var(--fg)">Band descriptions</th>
+<td style="padding: 16px 8px; border-top: 1px solid var(--line); text-align: center; vertical-align: middle; color: var(--muted)"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="sr">Meets</span></td>
+<td style="padding: 16px 8px; border-top: 1px solid var(--line); text-align: center; vertical-align: middle; color: var(--muted)"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="sr">Meets</span></td>
+<td style="padding: 16px 8px; border-top: 1px solid var(--line); text-align: center; vertical-align: middle; color: var(--hi)"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3.5 3.5l7 7M10.5 3.5l-7 7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path></svg><span class="sr">Does not meet</span></td>
+</tr>
+<tr>
+<th scope="row" style="padding: 16px 8px 16px 0; border-top: 1px solid var(--line); text-align: left; font-size: 17px; font-weight: 400; color: var(--fg)">Decision aids</th>
+<td style="padding: 16px 8px; border-top: 1px solid var(--line); text-align: center; vertical-align: middle; color: var(--muted)"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="sr">Meets</span></td>
+<td style="padding: 16px 8px; border-top: 1px solid var(--line); text-align: center; vertical-align: middle; color: var(--muted)"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3.5 7h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg><span class="sr">Partly meets</span></td>
+<td style="padding: 16px 8px; border-top: 1px solid var(--line); text-align: center; vertical-align: middle; color: var(--hi)"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3.5 3.5l7 7M10.5 3.5l-7 7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path></svg><span class="sr">Does not meet</span></td>
+</tr>
+<tr>
+<th scope="row" style="padding: 18px 8px 0 0; border-top: 1px solid var(--line); text-align: left; font-size: 17px; font-weight: 500; color: var(--fg)">Score</th>
+<td style="padding: 18px 8px 0; border-top: 1px solid var(--line); text-align: center; font-size: 19px; font-weight: 500; color: var(--fg)">3 / 3</td>
+<td style="padding: 18px 8px 0; border-top: 1px solid var(--line); text-align: center; font-size: 19px; font-weight: 500; color: var(--fg)">1 / 3</td>
+<td style="padding: 18px 8px 0; border-top: 1px solid var(--line); text-align: center; font-size: 19px; font-weight: 500; color: var(--hi)">0 / 3</td>
+</tr>
+</tbody>
+</table>
+<div aria-hidden="true" style="margin-top: 16px; display: flex; flex-wrap: wrap; gap: 4px 20px; font-size: 13px; color: var(--muted)">
+<span style="display: inline-flex; align-items: center; gap: 6px"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>Meets</span><span style="display: inline-flex; align-items: center; gap: 6px"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3.5 7h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg>Partly</span><span style="display: inline-flex; align-items: center; gap: 6px"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3.5 3.5l7 7M10.5 3.5l-7 7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path></svg>Doesn't meet</span>
+</div>
+</div>
+</div>
+</section>
+<section id="solution" style="scroll-margin-top: 96px; padding-top: 56px; border-top: 1px solid var(--line); display: flex; flex-direction: column">
+<div style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted)">Solution</div>
+<h2 style="margin: 16px 0 0; font-size: clamp(24px, 2.2vw, 32px); line-height: 1.2; letter-spacing: -0.02em; font-weight: 500; text-wrap: balance">One selector pattern, with the context built in</h2>
+<p style="margin: 20px 0 0; font-size: 19px; line-height: 1.7; color: var(--muted); text-wrap: pretty">Three changes, one for each problem.</p>
+<div style="margin-top: 48px; display: flex; flex-direction: column; gap: 28px">
+<div role="group" aria-label="Comparison view" style="align-self: flex-start; display: inline-flex; gap: 4px; padding: 4px; border-radius: 999px; background: var(--frame)">
+<button type="button" onClick="{{ showSide }}" aria-pressed="{{ sideOn }}" style="font-family: inherit; cursor: pointer; border: 0; min-height: 44px; padding: 0 22px; border-radius: 999px; font-size: 16px; font-weight: 500; background: {{ sideBg }}; color: {{ sideFg }}; box-shadow: {{ sideSh }}">Side by side</button>
+<button type="button" onClick="{{ showSlider }}" aria-pressed="{{ sliderOn }}" style="font-family: inherit; cursor: pointer; border: 0; min-height: 44px; padding: 0 22px; border-radius: 999px; font-size: 16px; font-weight: 500; background: {{ sliderBg }}; color: {{ sliderFg }}; box-shadow: {{ sliderSh }}">Slider</button>
+</div>
+<sc-if value="{{ sideOn }}" hint-placeholder-val="{{ true }}">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 28px 32px">
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 12px; min-width: 0">
+<div style="display: flex; align-items: center; gap: 12px"><span style="display: inline-flex; align-items: center; min-height: 26px; padding: 0 10px; border-radius: 999px; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; background: var(--bg); color: var(--muted); border: 1px solid var(--line)">Before</span><span style="font-size: 15px; color: var(--muted)">Mixed formats, no context</span></div>
+<div style="position: relative; aspect-ratio: 1400 / 1918; border-radius: 20px; overflow: hidden; border: 1px solid var(--line); background: #FFFFFF">
+<img src="/assets/ab0b50ff56dd4c313096280d09f379d3.jpg" alt="Full Galaxy Watch buy page before the redesign" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<span aria-hidden="true" style="position: absolute; left: 60%; top: 17.5%; transform: translate(-50%, -50%); z-index: 3; pointer-events: none; width: 28px; height: 28px; border-radius: 999px; border: 2px solid #FFFFFF; box-shadow: 0 2px 8px rgba(20,23,26,0.28); display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; background: #14171A; color: #FFFFFF">1</span>
+<span aria-hidden="true" style="position: absolute; left: 60%; top: 39.1%; transform: translate(-50%, -50%); z-index: 3; pointer-events: none; width: 28px; height: 28px; border-radius: 999px; border: 2px solid #FFFFFF; box-shadow: 0 2px 8px rgba(20,23,26,0.28); display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; background: #14171A; color: #FFFFFF">2</span>
+<span aria-hidden="true" style="position: absolute; left: 60%; top: 69.1%; transform: translate(-50%, -50%); z-index: 3; pointer-events: none; width: 28px; height: 28px; border-radius: 999px; border: 2px solid #FFFFFF; box-shadow: 0 2px 8px rgba(20,23,26,0.28); display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; background: #14171A; color: #FFFFFF">3</span>
+</div>
+</figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 12px; min-width: 0">
+<div style="display: flex; align-items: center; gap: 12px"><span style="display: inline-flex; align-items: center; min-height: 26px; padding: 0 10px; border-radius: 999px; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; background: var(--fg); color: var(--bg)">After</span><span style="font-size: 15px; color: var(--muted)">One card pattern, inline guidance</span></div>
+<div style="position: relative; aspect-ratio: 1400 / 1918; border-radius: 20px; overflow: hidden; border: 1px solid var(--line); background: #FFFFFF">
+<img src="/assets/541cc337ea8396a8307d4351c7b2523e.jpg" alt="Full Galaxy Watch buy page after the redesign" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<span aria-hidden="true" style="position: absolute; left: 60%; top: 16.5%; transform: translate(-50%, -50%); z-index: 3; pointer-events: none; width: 28px; height: 28px; border-radius: 999px; border: 2px solid #FFFFFF; box-shadow: 0 2px 8px rgba(20,23,26,0.28); display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; background: #14171A; color: #FFFFFF">1</span>
+<span aria-hidden="true" style="position: absolute; left: 60%; top: 42.5%; transform: translate(-50%, -50%); z-index: 3; pointer-events: none; width: 28px; height: 28px; border-radius: 999px; border: 2px solid #FFFFFF; box-shadow: 0 2px 8px rgba(20,23,26,0.28); display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; background: #14171A; color: #FFFFFF">2</span>
+<span aria-hidden="true" style="position: absolute; left: 60%; top: 81.7%; transform: translate(-50%, -50%); z-index: 3; pointer-events: none; width: 28px; height: 28px; border-radius: 999px; border: 2px solid #FFFFFF; box-shadow: 0 2px 8px rgba(20,23,26,0.28); display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; background: #14171A; color: #FFFFFF">3</span>
+</div>
+</figure>
+</div>
+</sc-if>
+<sc-if value="{{ sliderOn }}" hint-placeholder-val="{{ false }}">
+<div style="width: 100%; max-width: 720px; margin: 0 auto">
+<div style="position: relative; aspect-ratio: 1400 / 1918; border-radius: 20px; overflow: hidden; border: 1px solid var(--line); background: #FFFFFF">
+<img src="/assets/ab0b50ff56dd4c313096280d09f379d3.jpg" alt="Full Galaxy Watch buy page before the redesign" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<img src="/assets/541cc337ea8396a8307d4351c7b2523e.jpg" alt="Full Galaxy Watch buy page after the redesign" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; clip-path: inset(0 0 0 {{ clip }})">
+<div aria-hidden="true" style="position: absolute; top: 0; bottom: 0; left: {{ clip }}; width: 2px; margin-left: -1px; background: #14171A; z-index: 2; pointer-events: none"></div>
+<div aria-hidden="true" style="position: absolute; top: 50%; left: {{ clip }}; transform: translate(-50%, -50%); z-index: 2; pointer-events: none; width: 36px; height: 36px; border-radius: 999px; background: #14171A; color: #FFFFFF; display: flex; align-items: center; justify-content: center">
+<svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6.5 5L3 9l3.5 4M11.5 5L15 9l-3.5 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</div>
+<span style="position: absolute; top: 16px; left: 16px; z-index: 2; pointer-events: none; display: inline-flex; align-items: center; min-height: 26px; padding: 0 10px; border-radius: 999px; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; background: #FFFFFF; color: #5B636B; border: 1px solid #E4E7EA">Before</span>
+<span style="position: absolute; top: 16px; right: 16px; z-index: 2; pointer-events: none; display: inline-flex; align-items: center; min-height: 26px; padding: 0 10px; border-radius: 999px; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; background: #14171A; color: #FFFFFF">After</span>
+<input class="cmp-range" type="range" min="0" max="100" step="1" value="{{ pos }}" onChange="{{ setPos }}" aria-label="Drag to compare the page before and after" style="position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; cursor: ew-resize">
+<span aria-hidden="true" style="position: absolute; left: 60%; top: 16.5%; transform: translate(-50%, -50%); z-index: 3; pointer-events: none; width: 28px; height: 28px; border-radius: 999px; border: 2px solid #FFFFFF; box-shadow: 0 2px 8px rgba(20,23,26,0.28); display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; background: #14171A; color: #FFFFFF">1</span>
+<span aria-hidden="true" style="position: absolute; left: 60%; top: 42.5%; transform: translate(-50%, -50%); z-index: 3; pointer-events: none; width: 28px; height: 28px; border-radius: 999px; border: 2px solid #FFFFFF; box-shadow: 0 2px 8px rgba(20,23,26,0.28); display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; background: #14171A; color: #FFFFFF">2</span>
+<span aria-hidden="true" style="position: absolute; left: 60%; top: 81.7%; transform: translate(-50%, -50%); z-index: 3; pointer-events: none; width: 28px; height: 28px; border-radius: 999px; border: 2px solid #FFFFFF; box-shadow: 0 2px 8px rgba(20,23,26,0.28); display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; background: #14171A; color: #FFFFFF">3</span>
+</div>
+<p style="margin: 12px 0 0; font-size: 14px; color: var(--muted); text-align: center">Drag across the page to compare.</p>
+</div>
+</sc-if>
+</div>
+<div style="margin-top: 96px; display: flex; flex-direction: column; gap: 96px">
+<article style="display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; align-items: center; gap: 10px"><span aria-hidden="true" style="width: 28px; height: 28px; border-radius: 999px; background: var(--fg); color: var(--bg); display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600">1</span><span style="font-size: 14px; color: var(--muted2)">Solves: Cognitive load</span></div>
+<h3 style="margin: 0; font-size: 22px; line-height: 1.3; letter-spacing: -0.015em; font-weight: 500">Unified CTA format <span style="color: var(--muted2); font-weight: 400">· Size</span></h3>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); align-items: start; gap: 24px">
+<figure style="margin: 0; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<span style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 26px; padding: 0 10px; border-radius: 999px; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; background: var(--bg); color: var(--muted); border: 1px solid var(--line)">Before</span>
+<figcaption style="min-height: 50px; font-size: 16px; line-height: 1.55; color: var(--muted); text-wrap: pretty">Side-by-side pills with the price stacked below, a format no other selector used.</figcaption>
+<div style="background: var(--frame); border-radius: 16px; padding: 20px; box-sizing: border-box">
+<img src="/assets/9ee4dae7588879e5fac1fa9ecce4cd6b.png" alt="Size selector before the redesign" style="display: block; width: 100%; height: auto; border-radius: 10px; box-shadow: 0 1px 2px rgba(20,23,26,0.06)">
+</div>
+</figure>
+<figure style="margin: 0; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<span style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 26px; padding: 0 10px; border-radius: 999px; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; background: var(--fg); color: var(--bg)">After</span>
+<figcaption style="min-height: 50px; font-size: 16px; line-height: 1.55; color: var(--muted); text-wrap: pretty">Full-width stacked cards, label left and price right, matching every other selector.</figcaption>
+<div style="background: var(--frame); border-radius: 16px; padding: 20px; box-sizing: border-box">
+<img src="/assets/9894f45df604aa312b77977ab6ceb4fa.png" alt="Size selector after the redesign" style="display: block; width: 100%; height: auto; border-radius: 10px; box-shadow: 0 1px 2px rgba(20,23,26,0.06)">
+</div>
+</figure>
+</div>
+</article>
+<article style="display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; align-items: center; gap: 10px"><span aria-hidden="true" style="width: 28px; height: 28px; border-radius: 999px; background: var(--fg); color: var(--bg); display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600">2</span><span style="font-size: 14px; color: var(--muted2)">Solves: Selection clarity</span></div>
+<h3 style="margin: 0; font-size: 22px; line-height: 1.3; letter-spacing: -0.015em; font-weight: 500">Inline band descriptions <span style="color: var(--muted2); font-weight: 400">· Band type</span></h3>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); align-items: start; gap: 24px">
+<figure style="margin: 0; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<span style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 26px; padding: 0 10px; border-radius: 999px; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; background: var(--bg); color: var(--muted); border: 1px solid var(--line)">Before</span>
+<figcaption style="min-height: 50px; font-size: 16px; line-height: 1.55; color: var(--muted); text-wrap: pretty">Pills with the band name only, and no hint of how the bands differ.</figcaption>
+<div style="background: var(--frame); border-radius: 16px; padding: 20px; box-sizing: border-box">
+<img src="/assets/813ecc4835f3b000a42ae3ea8ee043eb.png" alt="Band type selector before the redesign" style="display: block; width: 100%; height: auto; border-radius: 10px; box-shadow: 0 1px 2px rgba(20,23,26,0.06)">
+</div>
+</figure>
+<figure style="margin: 0; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<span style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 26px; padding: 0 10px; border-radius: 999px; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; background: var(--fg); color: var(--bg)">After</span>
+<figcaption style="min-height: 50px; font-size: 16px; line-height: 1.55; color: var(--muted); text-wrap: pretty">Each card names the band's material and fit, with a band type guide below.</figcaption>
+<div style="background: var(--frame); border-radius: 16px; padding: 20px; box-sizing: border-box">
+<img src="/assets/e34a1a5ce4518948723e34640d89688f.png" alt="Band type selector after the redesign" style="display: block; width: 100%; height: auto; border-radius: 10px; box-shadow: 0 1px 2px rgba(20,23,26,0.06)">
+</div>
+</figure>
+</div>
+</article>
+<article style="display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; align-items: center; gap: 10px"><span aria-hidden="true" style="width: 28px; height: 28px; border-radius: 999px; background: var(--fg); color: var(--bg); display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600">3</span><span style="font-size: 14px; color: var(--muted2)">Solves: Insufficient context</span></div>
+<h3 style="margin: 0; font-size: 22px; line-height: 1.3; letter-spacing: -0.015em; font-weight: 500">Contextual decision aids <span style="color: var(--muted2); font-weight: 400">· Band size</span></h3>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); align-items: start; gap: 24px">
+<figure style="margin: 0; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<span style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 26px; padding: 0 10px; border-radius: 999px; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; background: var(--bg); color: var(--muted); border: 1px solid var(--line)">Before</span>
+<figcaption style="min-height: 50px; font-size: 16px; line-height: 1.55; color: var(--muted); text-wrap: pretty">A label-only button, so shoppers had to guess their size or leave to check.</figcaption>
+<div style="background: var(--frame); border-radius: 16px; padding: 20px; box-sizing: border-box">
+<img src="/assets/e4e10919550d2a19948ffc0d39dfa658.png" alt="Band size selector before the redesign" style="display: block; width: 100%; height: auto; border-radius: 10px; box-shadow: 0 1px 2px rgba(20,23,26,0.06)">
+</div>
+</figure>
+<figure style="margin: 0; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<span style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 26px; padding: 0 10px; border-radius: 999px; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; background: var(--fg); color: var(--bg)">After</span>
+<figcaption style="min-height: 50px; font-size: 16px; line-height: 1.55; color: var(--muted); text-wrap: pretty">A full-width card with the fit range, 145–205 mm, and a band sizing guide link.</figcaption>
+<div style="background: var(--frame); border-radius: 16px; padding: 20px; box-sizing: border-box">
+<img src="/assets/3d73cadcb49c85ee7b4cfd137c75118d.png" alt="Band size selector after the redesign" style="display: block; width: 100%; height: auto; border-radius: 10px; box-shadow: 0 1px 2px rgba(20,23,26,0.06)">
+</div>
+</figure>
+</div>
+</article>
+</div>
+<div style="margin-top: 96px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; align-items: center; gap: 10px"><span style="display: inline-flex; align-items: center; min-height: 26px; padding: 0 10px; border-radius: 999px; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; background: var(--fg); color: var(--bg)">New</span><span style="font-size: 14px; color: var(--muted2)">Opened from the Band type guide link in update 2</span></div>
+<h3 style="margin: 0; font-size: 22px; line-height: 1.3; letter-spacing: -0.015em; font-weight: 500">Discover your band <span style="color: var(--muted2); font-weight: 400">· Band type guide overlay</span></h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: var(--muted); text-wrap: pretty">One place to compare Marine, Trail, and Peakform by material, use, colors, and size, without leaving the buy page.</p>
+</div>
+<p style="margin: 0; display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--muted)"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>Scroll inside the overlay to see all three bands.</p>
+<div style="align-self: flex-start; width: 100%; max-width: 580px; background: #4D4D4D; border-radius: 0; padding: 50px; box-sizing: border-box; display: flex">
+<div class="overlay-scroll" tabindex="0" role="region" aria-label="Discover your band overlay. Scroll to see all three bands." style="flex: 1 1 auto; min-width: 0; aspect-ratio: 480 / 560; overflow-y: auto; overscroll-behavior: contain; border-radius: 20px">
+<img src="/assets/9e26a49a8f8a622f8cbf8a249f9c15a2.png" alt="Discover your band overlay with three bands. Marine Band, rubber: durable titanium buckle and ripple design for quick drainage, four colors, sizes M/L. Trail Band, fabric: ultra-light fabric with triangle latch and hook for trail running, four colors, sizes M/L. Peakform Band, fabric and rubber: soft fabric with durable rubber for cycling and jogging, four colors, sizes M/L." style="display: block; width: 100%; height: auto">
+</div>
+</div>
+</div>
+</section>
+<section id="results" style="scroll-margin-top: 96px; padding-top: 56px; border-top: 1px solid var(--line); display: flex; flex-direction: column">
+<div style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted)">Results</div>
+<h2 style="margin: 16px 0 0; font-size: clamp(24px, 2.2vw, 32px); line-height: 1.2; letter-spacing: -0.02em; font-weight: 500; text-wrap: balance">Measurable impact on the buy flow</h2>
+<p style="margin: 20px 0 0; font-size: 19px; line-height: 1.7; color: var(--muted); text-wrap: pretty">Measured against the pre-launch baseline over the first 30 days. Figures are relative changes; absolute rates are withheld.</p>
+<div style="margin-top: 36px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr)); gap: 28px 40px">
+<div style="padding-top: 20px; border-top: 1px solid var(--fg); display: flex; align-items: flex-start; gap: 20px">
+<div style="flex: 0 0 120px; display: flex; align-items: center; gap: 6px; color: var(--fg)"><span style="font-size: 34px; line-height: 1; letter-spacing: -0.025em; font-weight: 500">+16%</span><span style="color: var(--up); display: inline-flex"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 13V3M4 7l4-4 4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="sr">Increased</span></div>
+<div style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+<h3 style="margin: 0; font-size: 17px; line-height: 1.35; font-weight: 500; color: var(--fg)">Click-through rate</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.45; color: var(--muted)">Configuration step engagement</p>
+</div>
+</div>
+<div style="padding-top: 20px; border-top: 1px solid var(--fg); display: flex; align-items: flex-start; gap: 20px">
+<div style="flex: 0 0 120px; display: flex; align-items: center; gap: 6px; color: var(--fg)"><span style="font-size: 34px; line-height: 1; letter-spacing: -0.025em; font-weight: 500">+27%</span><span style="color: var(--up); display: inline-flex"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 13V3M4 7l4-4 4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="sr">Increased</span></div>
+<div style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+<h3 style="margin: 0; font-size: 17px; line-height: 1.35; font-weight: 500; color: var(--fg)">Conversion rate</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.45; color: var(--muted)">Completed purchases</p>
+</div>
+</div>
+<div style="padding-top: 20px; border-top: 1px solid var(--fg); display: flex; align-items: flex-start; gap: 20px">
+<div style="flex: 0 0 120px; display: flex; align-items: center; gap: 6px; color: var(--fg)"><span style="font-size: 34px; line-height: 1; letter-spacing: -0.025em; font-weight: 500">−42%</span><span style="color: var(--neg); display: inline-flex"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="sr">Decreased</span></div>
+<div style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+<h3 style="margin: 0; font-size: 17px; line-height: 1.35; font-weight: 500; color: var(--fg)">Page exit rate</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.45; color: var(--muted)">Drop-off at band selection</p>
+</div>
+</div>
+<div style="padding-top: 20px; border-top: 1px solid var(--fg); display: flex; align-items: flex-start; gap: 20px">
+<div style="flex: 0 0 120px; display: flex; align-items: center; gap: 6px; color: var(--fg)"><span style="font-size: 34px; line-height: 1; letter-spacing: -0.025em; font-weight: 500">−81%</span><span style="color: var(--neg); display: inline-flex"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="sr">Decreased</span></div>
+<div style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+<h3 style="margin: 0; font-size: 17px; line-height: 1.35; font-weight: 500; color: var(--fg)">External navigation</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.45; color: var(--muted)">Users leaving to research</p>
+</div>
+</div>
+</div>
+<div style="margin-top: 32px; padding: 18px 24px; border-radius: 16px; background: var(--frame); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 12px 32px">
+<div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap"><span style="font-size: 22px; line-height: 1.2; letter-spacing: -0.015em; font-weight: 500; color: var(--fg)">+8 pts</span><span style="font-size: 15px; line-height: 1.45; color: var(--muted)">NPS on buy flow</span></div>
+<div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap"><span style="font-size: 22px; line-height: 1.2; letter-spacing: -0.015em; font-weight: 500; color: var(--fg)">23% faster</span><span style="font-size: 15px; line-height: 1.45; color: var(--muted)">configuration time</span></div>
+<div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap"><span style="font-size: 22px; line-height: 1.2; letter-spacing: -0.015em; font-weight: 500; color: var(--fg)">1.4x</span><span style="font-size: 15px; line-height: 1.45; color: var(--muted)">non-default band picks</span></div>
+</div>
+</section>
+<section id="reflection" style="scroll-margin-top: 96px; padding-top: 56px; border-top: 1px solid var(--line); display: flex; flex-direction: column">
+<div style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted)">Reflection</div>
+<h2 style="margin: 16px 0 0; font-size: clamp(24px, 2.2vw, 32px); line-height: 1.2; letter-spacing: -0.02em; font-weight: 500; text-wrap: balance">What I learned and what I'd do differently</h2>
+<div style="margin-top: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr)); gap: 40px 48px">
+<article style="padding-top: 24px; border-top: 1px solid var(--fg); display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; align-items: center; gap: 10px; color: var(--muted)"><span style="width: 32px; height: 32px; border-radius: 999px; background: var(--frame); color: var(--fg); display: inline-flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.7.5 1.1 1.3 1.1 2.2V16h5v-.0c0-.9.4-1.7 1.1-2.2A6 6 0 0 0 12 3Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase">What I learned</span></div>
+<h3 style="margin: 4px 0 0; font-size: 22px; line-height: 1.3; letter-spacing: -0.015em; font-weight: 500; color: var(--fg); text-wrap: balance">Text descriptions were a smart constraint</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.65; color: var(--muted); text-wrap: pretty">I wanted inline band imagery, but an API limit pushed us to text. It shipped faster, and shoppers rated it the single most helpful addition.</p>
+</article>
+<article style="padding-top: 24px; border-top: 1px solid var(--fg); display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; align-items: center; gap: 10px; color: var(--muted)"><span style="width: 32px; height: 32px; border-radius: 999px; background: var(--frame); color: var(--fg); display: inline-flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.7M20 4v5h-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase">What I'd do differently</span></div>
+<h3 style="margin: 4px 0 0; font-size: 22px; line-height: 1.3; letter-spacing: -0.015em; font-weight: 500; color: var(--fg); text-wrap: balance">Bring engineering in earlier</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.65; color: var(--muted); text-wrap: pretty">Some wireframe directions weren’t feasible in the design system, and I didn’t learn that until week 4. Earlier check-ins would have focused the work and saved time.</p>
+</article>
+</div>
+<figure style="margin: 72px 0 0; display: flex; flex-direction: column; gap: 16px">
+<span aria-hidden="true" style="font-size: 56px; line-height: 0.6; font-weight: 500; color: var(--line)">“</span>
+<blockquote style="margin: 0; max-width: 920px; font-size: clamp(24px, 2.4vw, 34px); line-height: 1.3; letter-spacing: -0.02em; font-weight: 500; color: var(--fg); text-wrap: balance">The highest-impact changes are often the least dramatic. The buy flow didn’t need a redesign. It needed clarity.</blockquote>
+</figure>
+</section>
+</div>
+</div>
+
+<a href="/galaxy-xr/" style="margin-top: 112px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; padding: 40px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); text-decoration: none">
+<span style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted)">Next case study</span>
+<span style="font-size: clamp(24px, 2.4vw, 34px); line-height: 1.2; letter-spacing: -0.02em; font-weight: 500">Designing the Galaxy XR purchase journey</span>
+</span>
+<svg width="28" height="28" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</a>
+
+</main>
+
+<footer style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 56px 40px 64px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 40px">
+<span style="font-size: 15px; color: var(--muted)">© 2026 Ah Young Kim</span>
+<div style="display: flex; flex-wrap: wrap; gap: 4px 32px; font-size: 15px">
+<a href="mailto:ayk9531@gmail.com" style="display: inline-flex; align-items: center; min-height: 44px">ayk9531@gmail.com</a>
+<a href="https://www.linkedin.com/in/ah-young/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; min-height: 44px">LinkedIn <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M4 10L10 4M5 4h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+</div>
+</footer>
+
+</div>
+</script>
+<script src="/js/idiomorph.min.js"></script>
+<script src="/js/dc-lite.js"></script>
+<script>
+class Component extends DCLogic {
+  state = { theme: 'light', active: 'overview', pos: 50, view: 'side' };
+  sectionEls() {
+    const root = this._content || document;
+    return Array.prototype.slice.call(root.querySelectorAll('section[id]'));
+  }
+  spy() {
+    if (this._lockUntil && Date.now() < this._lockUntil) return;
+    const els = this.sectionEls();
+    if (!els.length) return;
+    const line = 200;
+    let current = els[0].id;
+    for (const el of els) {
+      if (el.getBoundingClientRect().top <= line) current = el.id;
+    }
+    const last = els[els.length - 1];
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+    if (last.getBoundingClientRect().bottom <= vh + 4) current = last.id;
+    if (current !== this.state.active) this.setState({ active: current });
+  }
+  componentDidMount() {
+    this.loadTheme();
+    this._onScroll = () => {
+      if (this._raf) return;
+      this._raf = requestAnimationFrame(() => { this._raf = null; this.spy(); });
+    };
+    document.addEventListener('scroll', this._onScroll, true);
+    window.addEventListener('resize', this._onScroll);
+    setTimeout(() => this.spy(), 0);
+  }
+  componentWillUnmount() {
+    document.removeEventListener('scroll', this._onScroll, true);
+    window.removeEventListener('resize', this._onScroll);
+    if (this._raf) cancelAnimationFrame(this._raf);
+  }
+  loadTheme() {
+    try {
+      const t = window.localStorage.getItem('ayk-theme');
+      if (t === 'dark' || t === 'light') this.setState({ theme: t });
+    } catch (e) {}
+  }
+  toggleThemeNow() {
+    const next = (this.state && this.state.theme) === 'dark' ? 'light' : 'dark';
+    this.setState({ theme: next });
+    try { window.localStorage.setItem('ayk-theme', next); } catch (e) {}
+  }
+  renderVals() {
+    const themeNow = (this.state && this.state.theme) === 'dark' ? 'dark' : 'light';
+    const active = (this.state && this.state.active) || 'overview';
+    const items = [
+      ['overview', 'Overview'], ['problem', 'Problem'], ['research', 'Research'],
+      ['solution', 'Solution'], ['results', 'Results'], ['reflection', 'Reflection']
+    ];
+    const cst = this.state || {};
+    const cmpPos = typeof cst.pos === 'number' ? cst.pos : 50;
+    const sideView = cst.view !== 'slider';
+    const segOn = { bg: 'var(--bg)', fg: 'var(--fg)', sh: '0 1px 3px rgba(20,23,26,0.12)' };
+    const segOff = { bg: 'transparent', fg: 'var(--muted)', sh: 'none' };
+    const segA = sideView ? segOn : segOff, segB = sideView ? segOff : segOn;
+    return {
+      pos: cmpPos, clip: cmpPos + '%',
+      setPos: (e) => this.setState({ pos: Number(e.target.value) }),
+      sideOn: sideView, sliderOn: !sideView,
+      sideBg: segA.bg, sideFg: segA.fg, sideSh: segA.sh,
+      sliderBg: segB.bg, sliderFg: segB.fg, sliderSh: segB.sh,
+      showSide: () => this.setState({ view: 'side' }),
+      showSlider: () => this.setState({ view: 'slider' }),
+      theme: themeNow,
+      isDark: themeNow === 'dark',
+      isLight: themeNow !== 'dark',
+      themeLabel: themeNow === 'dark' ? 'Switch to light mode' : 'Switch to dark mode',
+      toggleTheme: () => this.toggleThemeNow(),
+      contentRef: (el) => { this._content = el; },
+      toc: items.map(([id, label]) => ({
+        label: label,
+        href: '#' + id,
+        current: id === active ? 'location' : 'false',
+        bg: id === active ? 'var(--hl)' : 'transparent',
+        fg: id === active ? 'var(--fg)' : 'var(--muted)',
+        pick: () => {
+          this._lockUntil = Date.now() + 900;
+          this.setState({ active: id });
+        }
+      }))
+    };
+  }
+}
+DCLite.mount(Component, document.getElementById('dc-tpl'), document.getElementById('app'), {});
+</script>
+</body>
+</html>

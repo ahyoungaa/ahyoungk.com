@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Redesigning the Samsung Shop App · Ah Young Kim</title>
+<meta name="description" content="Portfolio of Ah Young Kim, Senior UX Designer at Samsung.">
+<link rel="canonical" href="https://ahyoungk.com/shop-app/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Redesigning the Samsung Shop App · Ah Young Kim">
+<meta property="og:description" content="Portfolio of Ah Young Kim, Senior UX Designer at Samsung.">
+<meta property="og:url" content="https://ahyoungk.com/shop-app/">
+<meta property="og:image" content="https://ahyoungk.com/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400..700;1,400..700&amp;family=JetBrains+Mono:wght@400&amp;display=swap">
+<style>
+body{margin:0;background:#FFFFFF}
+.site{--bg:#FFFFFF;--fg:#14171A;--fg2:#2A2F35;--muted:#5B636B;--muted2:#6B737B;--line:#E4E7EA;--ph1:#EEF0F2;--ph2:#F7F8F9;--ph-fg:#4A5158;--hl:#F2F3F1;--hover:#4B735B;--btn-bg:#14171A;--btn-fg:#FFFFFF;--btn-sub:#C9CED3;--hi:#2B5BD7;--frame:#F4F4F2;--up:#2E7A4E;--up-bg:#E7F3EC;--down:#2B5BD7;--down-bg:#E8EEFC;--neg:#C2412D}
+.site[data-theme="dark"]{--bg:#121416;--fg:#ECEEF0;--fg2:#D3D7DB;--muted:#A3ABB2;--muted2:#8D959C;--line:#2A2F34;--ph1:#1C1F22;--ph2:#23272B;--ph-fg:#A3ABB2;--hl:#22262A;--hover:#8DB89D;--btn-bg:#ECEEF0;--btn-fg:#121416;--btn-sub:#4A5158;--hi:#8FA9F2;--frame:#1C1F22;--up:#7CC79B;--up-bg:#1D2B23;--down:#8FA9F2;--down-bg:#1E2436;--neg:#F08A77}
+body:has(.site[data-theme="dark"]){background:#121416}
+.site a{color:var(--fg)}.site a:hover{color:var(--hover)}
+.site .nav-link{color:var(--muted)}.site .nav-link[aria-current="page"]{color:var(--fg)}
+.theme-btn:hover{background:var(--hl)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.toc{position:sticky;top:0;z-index:5}
+.toc-row{scrollbar-width:none}.toc-row::-webkit-scrollbar{display:none}
+.cmp-range{-webkit-appearance:none;appearance:none;background:transparent;margin:0}
+.cmp-range::-webkit-slider-thumb{-webkit-appearance:none;width:44px;height:100%;background:transparent;cursor:ew-resize}
+.cmp-range::-moz-range-thumb{width:44px;height:100%;background:transparent;border:0;cursor:ew-resize}
+.cmp-range:focus-visible{outline:2px solid var(--hi);outline-offset:4px}
+.overlay-scroll{scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.45) transparent}
+.overlay-scroll::-webkit-scrollbar{width:6px}.overlay-scroll::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.45);border-radius:999px}
+.overlay-scroll:focus-visible{outline:2px solid #FFFFFF;outline-offset:4px}
+html{scroll-behavior:smooth}
+</style>
+<style>#app{display:contents}</style>
+</head>
+<body>
+<div id="app"></div>
+<script type="text/x-dc-template" id="dc-tpl">
+<div id="top" class="site" data-theme="{{ theme }}" style="min-height: 100vh; background: var(--bg); color: var(--fg); font-family: 'Inter', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif; display: flex; flex-direction: column">
+
+<header style="border-bottom: 1px solid var(--line)">
+<div style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 40px; box-sizing: border-box; min-height: 64px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 24px">
+<a href="/" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; text-decoration: none">Ah Young Kim</a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 20px">
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0 32px">
+<a class="nav-link" href="/" aria-current="page" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; text-decoration: none">Work</a>
+<a class="nav-link" href="/about/" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; text-decoration: none">About</a>
+<a class="nav-link" href="/assets/c9416fa5f0b87efc6c358e7c10e8d57b.pdf" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; text-decoration: none">Resume</a>
+</nav>
+<span aria-hidden="true" style="width: 1px; height: 18px; background: var(--line)"></span>
+<button type="button" class="theme-btn" onClick="{{ toggleTheme }}" aria-label="{{ themeLabel }}" title="{{ themeLabel }}" style="font-family: inherit; cursor: pointer; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 999px; background: transparent; color: var(--fg); display: inline-flex; align-items: center; justify-content: center">
+<sc-if value="{{ isDark }}" hint-placeholder-val="{{ false }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.7"></circle><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4L6 18M18 6l1.4-1.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path></svg></sc-if>
+<sc-if value="{{ isLight }}" hint-placeholder-val="{{ true }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"></path></svg></sc-if>
+</button>
+</div>
+</div>
+</header>
+
+<main style="flex: 1 0 auto; width: 100%; max-width: 1200px; margin: 0 auto; padding: 40px 40px 0; box-sizing: border-box; display: flex; flex-direction: column">
+<a href="/" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: 15px; color: var(--muted); text-decoration: none">
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>All work</a>
+
+<h1 style="margin: 32px 0 0; font-size: clamp(32px, 3.6vw, 52px); line-height: 1.08; letter-spacing: -0.03em; font-weight: 500; text-wrap: balance">Redesigning the Samsung Shop App</h1>
+<p style="margin: 20px 0 0; font-size: 21px; line-height: 1.55; color: var(--muted); text-wrap: pretty">A tab-by-tab redesign concept for Samsung’s store app: clearer navigation, a truly personal For You tab, and side-by-side comparison. Explored in 2023 around the Galaxy Z Fold5 launch; not shipped.</p>
+
+<img src="/assets/fdfd81a9ad0845419cdd410f57375d8a.jpg" alt="Three Samsung Shop App screens, Discover, For You and Shop, on a blue background" style="margin-top: 48px; display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 24px; background: #5B8266">
+
+<div style="margin-top: 56px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 28px 40px">
+<div style="display: flex; flex-direction: column; gap: 8px"><div style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted)">Role</div><div style="font-size: 17px; line-height: 1.45">Senior UX Designer</div></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><div style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted)">Company</div><div style="font-size: 17px; line-height: 1.45">Samsung Electronics</div></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><div style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted)">Team</div><div style="font-size: 17px; line-height: 1.45">Design, Product, Engineering</div></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><div style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted)">Timeline</div><div style="font-size: 17px; line-height: 1.45">2023 · Concept, not shipped</div></div>
+</div>
+
+<div style="margin-top: 80px; display: flex; flex-direction: column; gap: 56px">
+<nav class="toc" aria-label="Contents" style="background: var(--bg); border-bottom: 1px solid var(--line); padding: 10px 0">
+<div class="toc-row" style="display: flex; align-items: center; gap: 4px; overflow-x: auto">
+<sc-for list="{{ toc }}" as="item" hint-placeholder-count="6">
+<a href="{{ item.href }}" onClick="{{ item.pick }}" aria-current="{{ item.current }}" style="flex: 0 0 auto; display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; text-decoration: none; font-size: 15px; white-space: nowrap; background: {{ item.bg }}; color: {{ item.fg }}">{{ item.label }}</a>
+</sc-for>
+</div>
+</nav>
+<div ref="{{ contentRef }}" style="min-width: 0; display: flex; flex-direction: column; gap: 96px">
+<section id="overview" style="scroll-margin-top: 96px; display: flex; flex-direction: column">
+<div style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted)">Overview</div>
+<h2 style="margin: 16px 0 0; font-size: clamp(24px, 2.2vw, 32px); line-height: 1.2; letter-spacing: -0.02em; font-weight: 500; text-wrap: balance">The store was a catalog. Shoppers needed a guide.</h2>
+<p style="margin: 20px 0 0; font-size: 19px; line-height: 1.7; color: var(--muted); text-wrap: pretty">Shop Samsung is the official store app for Samsung products and services. In 2023, around the Galaxy Z Fold5 launch, I explored a redesign of its dated interface: make it easier to navigate, give the Discover and For You tabs different jobs, and add features that shorten the path to purchase. The concept didn’t ship, so this study is about the thinking and the design rather than launch numbers.</p>
+<div style="margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 28px 40px"><div style="padding-top: 20px; border-top: 1px solid var(--fg); display: flex; flex-direction: column; gap: 8px"><div style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted)">The problem</div><div style="font-size: 17px; line-height: 1.55; color: var(--fg)">Shoppers could not find products, the Discover and For You tabs repeated each other, and nothing let them compare before buying.</div></div><div style="padding-top: 20px; border-top: 1px solid var(--fg); display: flex; flex-direction: column; gap: 8px"><div style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted)">What I did</div><div style="font-size: 17px; line-height: 1.55; color: var(--fg)">Reframed six Play Store complaints into three design goals, audited Apple, Best Buy and Amazon, and designed every main tab from sketch to high fidelity.</div></div><div style="padding-top: 20px; border-top: 1px solid var(--fg); display: flex; flex-direction: column; gap: 8px"><div style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted)">The outcome</div><div style="font-size: 17px; line-height: 1.55; color: var(--fg)">A five-tab navigation model, a clear content split between Discover and For You, and a compare pattern, plus a measurement plan for the day it ships.</div></div></div></section>
+<section id="brief" style="scroll-margin-top: 96px; padding-top: 56px; border-top: 1px solid var(--line); display: flex; flex-direction: column">
+<div style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted)">The brief</div>
+<h2 style="margin: 16px 0 0; font-size: clamp(24px, 2.2vw, 32px); line-height: 1.2; letter-spacing: -0.02em; font-weight: 500; text-wrap: balance">Six complaints in, three goals out</h2>
+<p style="margin: 20px 0 0; font-size: 19px; line-height: 1.7; color: var(--muted); text-wrap: pretty">Google Play Store reviews kept raising the same six issues. Four of them were design problems; performance and checkout errors went to engineering.</p>
+<div style="margin-top: 32px; display: flex; flex-wrap: wrap; gap: 10px"><span style="display: inline-flex; align-items: center; min-height: 28px; padding: 0 12px; border: 1px solid var(--line); border-radius: 999px; font-size: 13px; color: var(--muted); ">Navigation difficulties</span><span style="display: inline-flex; align-items: center; min-height: 28px; padding: 0 12px; border: 1px solid var(--line); border-radius: 999px; font-size: 13px; color: var(--muted); ">Redundant content</span><span style="display: inline-flex; align-items: center; min-height: 28px; padding: 0 12px; border: 1px solid var(--line); border-radius: 999px; font-size: 13px; color: var(--muted); ">Poor personalization</span><span style="display: inline-flex; align-items: center; min-height: 28px; padding: 0 12px; border: 1px solid var(--line); border-radius: 999px; font-size: 13px; color: var(--muted); ">Lack of product comparison</span><span style="display: inline-flex; align-items: center; min-height: 28px; padding: 0 12px; border: 1px solid var(--line); border-radius: 999px; font-size: 13px; color: var(--muted); opacity: 0.55">Slow performance</span><span style="display: inline-flex; align-items: center; min-height: 28px; padding: 0 12px; border: 1px solid var(--line); border-radius: 999px; font-size: 13px; color: var(--muted); opacity: 0.55">Checkout and payment issues</span></div><div style="margin-top: 32px; border-bottom: 1px solid var(--line)"><div style="display: flex; gap: 16px; padding: 20px 0; border-top: 1px solid var(--line)"><span aria-hidden="true" style="width: 28px; height: 28px; border-radius: 999px; background: var(--fg); color: var(--bg); display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; flex: 0 0 auto">1</span><div style="display: flex; flex-direction: column; gap: 4px"><div style="font-size: 19px; font-weight: 500; color: var(--fg)">Make the app easy to navigate</div><div style="font-size: 14px; color: var(--muted2)">From: Navigation difficulties</div></div></div><div style="display: flex; gap: 16px; padding: 20px 0; border-top: 1px solid var(--line)"><span aria-hidden="true" style="width: 28px; height: 28px; border-radius: 999px; background: var(--fg); color: var(--bg); display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; flex: 0 0 auto">2</span><div style="display: flex; flex-direction: column; gap: 4px"><div style="font-size: 19px; font-weight: 500; color: var(--fg)">Give Discover and For You different jobs</div><div style="font-size: 14px; color: var(--muted2)">From: Redundant content · Poor personalization</div></div></div><div style="display: flex; gap: 16px; padding: 20px 0; border-top: 1px solid var(--line)"><span aria-hidden="true" style="width: 28px; height: 28px; border-radius: 999px; background: var(--fg); color: var(--bg); display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; flex: 0 0 auto">3</span><div style="display: flex; flex-direction: column; gap: 4px"><div style="font-size: 19px; font-weight: 500; color: var(--fg)">Let shoppers compare before they buy</div><div style="font-size: 14px; color: var(--muted2)">From: Lack of product comparison</div></div></div></div></section>
+<section id="app" style="scroll-margin-top: 96px; padding-top: 56px; border-top: 1px solid var(--line); display: flex; flex-direction: column">
+<div style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted)">The app</div>
+<h2 style="margin: 16px 0 0; font-size: clamp(24px, 2.2vw, 32px); line-height: 1.2; letter-spacing: -0.02em; font-weight: 500; text-wrap: balance">Five tabs, each with one job</h2>
+<p style="margin: 20px 0 0; font-size: 19px; line-height: 1.7; color: var(--muted); text-wrap: pretty">The redesigned app, tab by tab. Scroll inside the Discover and For You phones to see the whole tab.</p>
+<div style="margin-top: 56px; display: flex; flex-direction: column; gap: 96px">
+<article style="display: flex; flex-wrap: wrap-reverse; align-items: flex-start; gap: 32px 48px"><div style="flex: 1.2 1 380px; min-width: 0"><div style="background: var(--frame); border-radius: 20px; padding: 28px; box-sizing: border-box; "><div style="display: flex; flex-direction: column; align-items: center; gap: 14px">
+<div style="width: 300px; max-width: 100%; aspect-ratio: 300 / 640; border-radius: 40px; border: 9px solid #1A1D21; box-sizing: border-box; overflow: hidden; background: #FFFFFF">
+<div class="overlay-scroll" tabindex="0" role="region" aria-label="Discover screen. Scroll to see the whole tab." style="height: 100%; overflow-y: auto; overscroll-behavior: contain">
+<img src="/assets/6d560822d641f2cca6ab6a646b7165b4.png" alt="The full Discover tab" style="display: block; width: 100%; height: auto">
+</div>
+</div>
+<span style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted)"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>Scroll inside to see the whole Discover tab</span>
+</div></div></div><div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; align-items: center; gap: 10px"><span aria-hidden="true" style="width: 28px; height: 28px; border-radius: 999px; background: var(--fg); color: var(--bg); display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600">1</span><span style="font-size: 14px; color: var(--muted2)">Discover tab</span></div>
+<h3 style="margin: 0; font-size: 22px; line-height: 1.3; letter-spacing: -0.015em; font-weight: 500; color: var(--fg)">What is new, for everyone</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.65; color: var(--muted); text-wrap: pretty">The front door of the app: campaigns and offers at the top, and content that rewards scrolling, from videos and AR previews to the newsroom.</p>
+<ol style="margin: 8px 0 0; padding: 0; list-style: none; border-bottom: 1px solid var(--line)"><li style="display: flex; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line)"><span style="flex: 0 0 auto; font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: var(--muted2); padding-top: 3px">01</span><div><div style="font-size: 16px; font-weight: 500; color: var(--fg)">Key visuals</div><div style="font-size: 14px; line-height: 1.5; color: var(--muted)">New products and campaigns at the top, promotions below</div></div></li><li style="display: flex; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line)"><span style="flex: 0 0 auto; font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: var(--muted2); padding-top: 3px">02</span><div><div style="font-size: 16px; font-weight: 500; color: var(--fg)">Featured offers and offers by category</div><div style="font-size: 14px; line-height: 1.5; color: var(--muted)">Horizontal scroll, grouped the way shoppers browse</div></div></li><li style="display: flex; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line)"><span style="flex: 0 0 auto; font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: var(--muted2); padding-top: 3px">03</span><div><div style="font-size: 16px; font-weight: 500; color: var(--fg)">Complete your order</div><div style="font-size: 14px; line-height: 1.5; color: var(--muted)">Items left in the cart, with a one-tap checkout</div></div></li><li style="display: flex; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line)"><span style="flex: 0 0 auto; font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: var(--muted2); padding-top: 3px">04</span><div><div style="font-size: 16px; font-weight: 500; color: var(--fg)">App-exclusive offers and new products</div><div style="font-size: 14px; line-height: 1.5; color: var(--muted)">Reasons to open the app instead of the website</div></div></li><li style="display: flex; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line)"><span style="flex: 0 0 auto; font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: var(--muted2); padding-top: 3px">05</span><div><div style="font-size: 16px; font-weight: 500; color: var(--fg)">Videos, AR preview and inspiration</div><div style="font-size: 14px; line-height: 1.5; color: var(--muted)">See products in use, or in your own room</div></div></li><li style="display: flex; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line)"><span style="flex: 0 0 auto; font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: var(--muted2); padding-top: 3px">06</span><div><div style="font-size: 16px; font-weight: 500; color: var(--fg)">Newsroom, Care+ and app benefits</div><div style="font-size: 14px; line-height: 1.5; color: var(--muted)">Everything else, in one place at the bottom</div></div></li></ol>
+</div></article>
+<article style="display: flex; flex-wrap: wrap-reverse; align-items: flex-start; gap: 32px 48px"><div style="flex: 1.2 1 380px; min-width: 0"><div style="background: var(--frame); border-radius: 20px; padding: 28px; box-sizing: border-box; "><div style="display: flex; flex-direction: column; align-items: center; gap: 14px">
+<div style="width: 300px; max-width: 100%; aspect-ratio: 300 / 640; border-radius: 40px; border: 9px solid #1A1D21; box-sizing: border-box; overflow: hidden; background: #FFFFFF">
+<div class="overlay-scroll" tabindex="0" role="region" aria-label="For You screen. Scroll to see the whole tab." style="height: 100%; overflow-y: auto; overscroll-behavior: contain">
+<img src="/assets/059f885a2b0d23af68fb12cb584c7aa5.png" alt="The full For You tab" style="display: block; width: 100%; height: auto">
+</div>
+</div>
+<span style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted)"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>Scroll inside to see the whole For You tab</span>
+</div></div></div><div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; align-items: center; gap: 10px"><span aria-hidden="true" style="width: 28px; height: 28px; border-radius: 999px; background: var(--fg); color: var(--bg); display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600">2</span><span style="font-size: 14px; color: var(--muted2)">For You tab</span></div>
+<h3 style="margin: 0; font-size: 22px; line-height: 1.3; letter-spacing: -0.015em; font-weight: 500; color: var(--fg)">What is yours</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.65; color: var(--muted); text-wrap: pretty">Built around the shopper: their rewards, the devices they own, and recommendations drawn from their cart, devices and saves.</p>
+<ol style="margin: 8px 0 0; padding: 0; list-style: none; border-bottom: 1px solid var(--line)"><li style="display: flex; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line)"><span style="flex: 0 0 auto; font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: var(--muted2); padding-top: 3px">01</span><div><div style="font-size: 16px; font-weight: 500; color: var(--fg)">Rewards progress</div><div style="font-size: 14px; line-height: 1.5; color: var(--muted)">Points, tier and what unlocks next</div></div></li><li style="display: flex; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line)"><span style="flex: 0 0 auto; font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: var(--muted2); padding-top: 3px">02</span><div><div style="font-size: 16px; font-weight: 500; color: var(--fg)">Your saves</div><div style="font-size: 14px; line-height: 1.5; color: var(--muted)">Stored products for quick purchase</div></div></li><li style="display: flex; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line)"><span style="flex: 0 0 auto; font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: var(--muted2); padding-top: 3px">03</span><div><div style="font-size: 16px; font-weight: 500; color: var(--fg)">Upgrade your device</div><div style="font-size: 14px; line-height: 1.5; color: var(--muted)">The shopper’s current device beside the newest model</div></div></li><li style="display: flex; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line)"><span style="flex: 0 0 auto; font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: var(--muted2); padding-top: 3px">04</span><div><div style="font-size: 16px; font-weight: 500; color: var(--fg)">Your devices</div><div style="font-size: 14px; line-height: 1.5; color: var(--muted)">Shop relevant accessories for what they own</div></div></li><li style="display: flex; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line)"><span style="flex: 0 0 auto; font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: var(--muted2); padding-top: 3px">05</span><div><div style="font-size: 16px; font-weight: 500; color: var(--fg)">Recommendations</div><div style="font-size: 14px; line-height: 1.5; color: var(--muted)">Based on cart, devices and saves</div></div></li><li style="display: flex; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line)"><span style="flex: 0 0 auto; font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: var(--muted2); padding-top: 3px">06</span><div><div style="font-size: 16px; font-weight: 500; color: var(--fg)">Recommended videos and accessories</div><div style="font-size: 14px; line-height: 1.5; color: var(--muted)">Matched to the devices they own</div></div></li></ol>
+</div></article>
+<article style="display: flex; flex-wrap: wrap-reverse; align-items: flex-start; gap: 32px 48px"><div style="flex: 1.5 1 420px; min-width: 0"><div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px"><figure style="margin: 0; display: flex; flex-direction: column; gap: 10px; min-width: 0"><div style="background: var(--frame); border-radius: 20px; padding: 20px; box-sizing: border-box; "><img src="/assets/72b3f2e516bdf631a0f0639cfc50eea8.png" alt="Shop tab category grid" style="display: block; width: 100%; height: auto"></div><figcaption style="font-size: 14px; color: var(--muted)">Shop</figcaption></figure><figure style="margin: 0; display: flex; flex-direction: column; gap: 10px; min-width: 0"><div style="background: var(--frame); border-radius: 20px; padding: 20px; box-sizing: border-box; "><img src="/assets/4c60f4d3a8b29fcbb689c0fbbf3f3383.png" alt="Home Appliances category" style="display: block; width: 100%; height: auto"></div><figcaption style="font-size: 14px; color: var(--muted)">Home Appliances</figcaption></figure><figure style="margin: 0; display: flex; flex-direction: column; gap: 10px; min-width: 0"><div style="background: var(--frame); border-radius: 20px; padding: 20px; box-sizing: border-box; "><img src="/assets/0720847771f21c60d0bfecb2fade950b.png" alt="Vacuums product list" style="display: block; width: 100%; height: auto"></div><figcaption style="font-size: 14px; color: var(--muted)">Vacuums</figcaption></figure></div></div><div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; align-items: center; gap: 10px"><span aria-hidden="true" style="width: 28px; height: 28px; border-radius: 999px; background: var(--fg); color: var(--bg); display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600">3</span><span style="font-size: 14px; color: var(--muted2)">Shop tab</span></div>
+<h3 style="margin: 0; font-size: 22px; line-height: 1.3; letter-spacing: -0.015em; font-weight: 500; color: var(--fg)">Categories you can see</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.65; color: var(--muted); text-wrap: pretty">A grid of categories replaces nested menus. Each opens a filtered list with sort and compare in reach.</p>
+<ol style="margin: 8px 0 0; padding: 0; list-style: none; border-bottom: 1px solid var(--line)"><li style="display: flex; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line)"><span style="flex: 0 0 auto; font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: var(--muted2); padding-top: 3px">01</span><div><div style="font-size: 16px; font-weight: 500; color: var(--fg)">Category grid</div><div style="font-size: 14px; line-height: 1.5; color: var(--muted)">Image tiles for Offers, Phones, TVs, Watches and more</div></div></li><li style="display: flex; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line)"><span style="flex: 0 0 auto; font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: var(--muted2); padding-top: 3px">02</span><div><div style="font-size: 16px; font-weight: 500; color: var(--fg)">Category pages</div><div style="font-size: 14px; line-height: 1.5; color: var(--muted)">Sub-categories keep the same tile pattern</div></div></li><li style="display: flex; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line)"><span style="flex: 0 0 auto; font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: var(--muted2); padding-top: 3px">03</span><div><div style="font-size: 16px; font-weight: 500; color: var(--fg)">Product lists</div><div style="font-size: 14px; line-height: 1.5; color: var(--muted)">Filters, sort and Compare on every list</div></div></li></ol>
+</div></article>
+<article style="display: flex; flex-wrap: wrap-reverse; align-items: flex-start; gap: 32px 48px"><div style="flex: 1.2 1 380px; min-width: 0"><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 20px"><figure style="margin: 0; display: flex; flex-direction: column; gap: 10px; min-width: 0"><div style="background: var(--frame); border-radius: 20px; padding: 20px; box-sizing: border-box; "><img src="/assets/8142bbfd9f42a406ac40e2d685136048.png" alt="Product list in compare mode" style="display: block; width: 100%; height: auto"></div><figcaption style="font-size: 14px; color: var(--muted)">Select two products</figcaption></figure><figure style="margin: 0; display: flex; flex-direction: column; gap: 10px; min-width: 0"><div style="background: var(--frame); border-radius: 20px; padding: 20px; box-sizing: border-box; "><img src="/assets/e6b3cb581d08aa8da1397af290f5ad1d.png" alt="Comparison screen" style="display: block; width: 100%; height: auto"></div><figcaption style="font-size: 14px; color: var(--muted)">Compare key features</figcaption></figure></div></div><div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; align-items: center; gap: 10px"><span aria-hidden="true" style="width: 28px; height: 28px; border-radius: 999px; background: var(--fg); color: var(--bg); display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600">4</span><span style="font-size: 14px; color: var(--muted2)">Compare</span></div>
+<h3 style="margin: 0; font-size: 22px; line-height: 1.3; letter-spacing: -0.015em; font-weight: 500; color: var(--fg)">Two products, side by side</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.65; color: var(--muted); text-wrap: pretty">Tap Compare on a list, pick two products, and see key features next to each other.</p>
+<ol style="margin: 8px 0 0; padding: 0; list-style: none; border-bottom: 1px solid var(--line)"><li style="display: flex; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line)"><span style="flex: 0 0 auto; font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: var(--muted2); padding-top: 3px">01</span><div><div style="font-size: 16px; font-weight: 500; color: var(--fg)">Compare mode</div><div style="font-size: 14px; line-height: 1.5; color: var(--muted)">Turned on from any product list</div></div></li><li style="display: flex; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line)"><span style="flex: 0 0 auto; font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: var(--muted2); padding-top: 3px">02</span><div><div style="font-size: 16px; font-weight: 500; color: var(--fg)">Compare tray</div><div style="font-size: 14px; line-height: 1.5; color: var(--muted)">Shows the two selections before you commit</div></div></li><li style="display: flex; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line)"><span style="flex: 0 0 auto; font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: var(--muted2); padding-top: 3px">03</span><div><div style="font-size: 16px; font-weight: 500; color: var(--fg)">Side-by-side view</div><div style="font-size: 14px; line-height: 1.5; color: var(--muted)">Key features, aligned row by row</div></div></li></ol>
+</div></article>
+<article style="display: flex; flex-wrap: wrap-reverse; align-items: flex-start; gap: 32px 48px"><div style="flex: 1.2 1 380px; min-width: 0"><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 20px"><figure style="margin: 0; display: flex; flex-direction: column; gap: 10px; min-width: 0"><div style="background: var(--frame); border-radius: 20px; padding: 20px; box-sizing: border-box; "><img src="/assets/02484ea65130fe685344dc6ab799c535.png" alt="Search screen" style="display: block; width: 100%; height: auto"></div><figcaption style="font-size: 14px; color: var(--muted)">Search</figcaption></figure><figure style="margin: 0; display: flex; flex-direction: column; gap: 10px; min-width: 0"><div style="background: var(--frame); border-radius: 20px; padding: 20px; box-sizing: border-box; "><img src="/assets/67f883d9b7f32bf37dbc3c663c9aca78.png" alt="My Samsung account screen" style="display: block; width: 100%; height: auto"></div><figcaption style="font-size: 14px; color: var(--muted)">My Samsung</figcaption></figure></div></div><div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; align-items: center; gap: 10px"><span aria-hidden="true" style="width: 28px; height: 28px; border-radius: 999px; background: var(--fg); color: var(--bg); display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600">5</span><span style="font-size: 14px; color: var(--muted2)">Search and My Samsung</span></div>
+<h3 style="margin: 0; font-size: 22px; line-height: 1.3; letter-spacing: -0.015em; font-weight: 500; color: var(--fg)">Find it fast, manage it easily</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.65; color: var(--muted); text-wrap: pretty">Search leads with recently viewed products and top searches. My Samsung gathers orders, rewards, wishlist, inbox and subscriptions.</p>
+<ol style="margin: 8px 0 0; padding: 0; list-style: none; border-bottom: 1px solid var(--line)"><li style="display: flex; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line)"><span style="flex: 0 0 auto; font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: var(--muted2); padding-top: 3px">01</span><div><div style="font-size: 16px; font-weight: 500; color: var(--fg)">Recently viewed and top searches</div><div style="font-size: 14px; line-height: 1.5; color: var(--muted)">Faster return visits, fewer typed searches</div></div></li><li style="display: flex; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line)"><span style="flex: 0 0 auto; font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: var(--muted2); padding-top: 3px">02</span><div><div style="font-size: 16px; font-weight: 500; color: var(--fg)">Orders and delivery status</div><div style="font-size: 14px; line-height: 1.5; color: var(--muted)">With rewards earned per order</div></div></li><li style="display: flex; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line)"><span style="flex: 0 0 auto; font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; color: var(--muted2); padding-top: 3px">03</span><div><div style="font-size: 16px; font-weight: 500; color: var(--fg)">Account shortcuts</div><div style="font-size: 14px; line-height: 1.5; color: var(--muted)">Rewards, wishlist, inbox, reviews, subscriptions</div></div></li></ol>
+</div></article>
+</div>
+</section>
+<section id="process" style="scroll-margin-top: 96px; padding-top: 56px; border-top: 1px solid var(--line); display: flex; flex-direction: column">
+<div style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted)">Behind it</div>
+<h2 style="margin: 16px 0 0; font-size: clamp(24px, 2.2vw, 32px); line-height: 1.2; letter-spacing: -0.02em; font-weight: 500; text-wrap: balance">How we got here</h2>
+<div style="margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 28px 32px"><div style="padding-top: 20px; border-top: 1px solid var(--fg); display: flex; flex-direction: column; gap: 6px"><div style="font-size: 13px; color: var(--muted2)">01</div><div style="font-size: 19px; font-weight: 500; color: var(--fg)">Discover <span style="color: var(--muted2); font-weight: 400">· Exploratory research</span></div><div style="font-size: 15px; line-height: 1.5; color: var(--muted)">Play Store reviews and a competitive audit</div></div><div style="padding-top: 20px; border-top: 1px solid var(--fg); display: flex; flex-direction: column; gap: 6px"><div style="font-size: 13px; color: var(--muted2)">02</div><div style="font-size: 19px; font-weight: 500; color: var(--fg)">Define <span style="color: var(--muted2); font-weight: 400">· Problem framing</span></div><div style="font-size: 15px; line-height: 1.5; color: var(--muted)">Six complaints grouped into three design problems</div></div><div style="padding-top: 20px; border-top: 1px solid var(--fg); display: flex; flex-direction: column; gap: 6px"><div style="font-size: 13px; color: var(--muted2)">03</div><div style="font-size: 19px; font-weight: 500; color: var(--fg)">Design <span style="color: var(--muted2); font-weight: 400">· Execution</span></div><div style="font-size: 15px; line-height: 1.5; color: var(--muted)">Sketches, then high-fidelity screens for every tab</div></div></div>
+<h3 style="margin: 64px 0 0; font-size: 22px; line-height: 1.3; letter-spacing: -0.015em; font-weight: 500; color: var(--fg)">Six patterns Apple, Best Buy and Amazon share</h3><p style="margin: 10px 0 28px; font-size: 17px; line-height: 1.65; color: var(--muted); text-wrap: pretty">Personalized offers drive engagement and sales for all three. These became the building blocks of the new For You tab.</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 20px 40px"><div style="display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid var(--line)"><div style="font-size: 17px; font-weight: 500; color: var(--fg)">You may also like</div><div style="font-size: 15px; line-height: 1.5; color: var(--muted)">Similar or complementary products from browsing history</div></div><div style="display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid var(--line)"><div style="font-size: 17px; font-weight: 500; color: var(--fg)">Deals for you</div><div style="font-size: 15px; line-height: 1.5; color: var(--muted)">Discounts based on preferences and past purchases</div></div><div style="display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid var(--line)"><div style="font-size: 17px; font-weight: 500; color: var(--fg)">Top picks for you</div><div style="font-size: 15px; line-height: 1.5; color: var(--muted)">Curated suggestions from shopping behavior</div></div><div style="display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid var(--line)"><div style="font-size: 17px; font-weight: 500; color: var(--fg)">Deals related to your cart</div><div style="font-size: 15px; line-height: 1.5; color: var(--muted)">Offers tied to what is already in the cart</div></div><div style="display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid var(--line)"><div style="font-size: 17px; font-weight: 500; color: var(--fg)">Device upgrade</div><div style="font-size: 15px; line-height: 1.5; color: var(--muted)">Newer models and trade-in options for owned devices</div></div><div style="display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid var(--line)"><div style="font-size: 17px; font-weight: 500; color: var(--fg)">Recently viewed</div><div style="font-size: 15px; line-height: 1.5; color: var(--muted)">Previously explored products, one tap away</div></div></div></section>
+<section id="results" style="scroll-margin-top: 96px; padding-top: 56px; border-top: 1px solid var(--line); display: flex; flex-direction: column">
+<div style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted)">If it shipped</div>
+<h2 style="margin: 16px 0 0; font-size: clamp(24px, 2.2vw, 32px); line-height: 1.2; letter-spacing: -0.02em; font-weight: 500; text-wrap: balance">No launch data, so here is how I would measure it</h2>
+<p style="margin: 20px 0 0; font-size: 19px; line-height: 1.7; color: var(--muted); text-wrap: pretty">This concept was not released, so there are no results to report. These are the four metrics I would instrument before launch, each tied to one of the three design goals.</p>
+<div style="margin-top: 36px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 28px 40px"><div style="padding-top: 20px; border-top: 1px solid var(--fg); display: flex; flex-direction: column; gap: 8px"><h3 style="margin: 0; font-size: 17px; line-height: 1.35; font-weight: 500; color: var(--fg)">Time to product</h3><p style="margin: 0; font-size: 15px; line-height: 1.5; color: var(--muted)">App open to first product page, median taps and seconds.</p><p style="margin: 6px 0 0; font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; line-height: 1.5; color: var(--muted2)">Goal 1 · Easy to navigate. Should fall once categories replace nested menus.</p></div><div style="padding-top: 20px; border-top: 1px solid var(--fg); display: flex; flex-direction: column; gap: 8px"><h3 style="margin: 0; font-size: 17px; line-height: 1.35; font-weight: 500; color: var(--fg)">For You engagement</h3><p style="margin: 0; font-size: 15px; line-height: 1.5; color: var(--muted)">Taps on personalized modules and return visits to the tab.</p><p style="margin: 6px 0 0; font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; line-height: 1.5; color: var(--muted2)">Goal 2 · Different jobs. Should rise once the tab stops repeating Discover.</p></div><div style="padding-top: 20px; border-top: 1px solid var(--fg); display: flex; flex-direction: column; gap: 8px"><h3 style="margin: 0; font-size: 17px; line-height: 1.35; font-weight: 500; color: var(--fg)">Compare usage</h3><p style="margin: 0; font-size: 15px; line-height: 1.5; color: var(--muted)">Compare sessions that end in a product page view or an add to cart.</p><p style="margin: 6px 0 0; font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; line-height: 1.5; color: var(--muted2)">Goal 3 · Compare before buying. New behavior, so the baseline is zero.</p></div><div style="padding-top: 20px; border-top: 1px solid var(--fg); display: flex; flex-direction: column; gap: 8px"><h3 style="margin: 0; font-size: 17px; line-height: 1.35; font-weight: 500; color: var(--fg)">App conversion rate</h3><p style="margin: 0; font-size: 15px; line-height: 1.5; color: var(--muted)">Completed purchases per session, against the previous version.</p><p style="margin: 6px 0 0; font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; line-height: 1.5; color: var(--muted2)">All goals. The number the business would judge the redesign by.</p></div></div>
+</section>
+<section id="reflection" style="scroll-margin-top: 96px; padding-top: 56px; border-top: 1px solid var(--line); display: flex; flex-direction: column">
+<div style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted)">Reflection</div>
+<h2 style="margin: 16px 0 0; font-size: clamp(24px, 2.2vw, 32px); line-height: 1.2; letter-spacing: -0.02em; font-weight: 500; text-wrap: balance">What I learned and what I'd do differently</h2>
+<div style="margin-top: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr)); gap: 40px 48px"><article style="padding-top: 24px; border-top: 1px solid var(--fg); display: flex; flex-direction: column; gap: 14px"><div style="display: flex; align-items: center; gap: 10px; color: var(--muted)"><span style="width: 32px; height: 32px; border-radius: 999px; background: var(--frame); color: var(--fg); display: inline-flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.7.5 1.1 1.3 1.1 2.2V16h5c0-.9.4-1.7 1.1-2.2A6 6 0 0 0 12 3Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase">What I learned</span></div><h3 style="margin: 4px 0 0; font-size: 22px; line-height: 1.3; letter-spacing: -0.015em; font-weight: 500; color: var(--fg); text-wrap: balance">Feasible beats flashy</h3><p style="margin: 0; font-size: 17px; line-height: 1.65; color: var(--muted); text-wrap: pretty">Working with engineers on what the app could actually ship kept the ideas that mattered, like comparison and device-based recommendations, and cut the ones that would have stalled.</p></article><article style="padding-top: 24px; border-top: 1px solid var(--fg); display: flex; flex-direction: column; gap: 14px"><div style="display: flex; align-items: center; gap: 10px; color: var(--muted)"><span style="width: 32px; height: 32px; border-radius: 999px; background: var(--frame); color: var(--fg); display: inline-flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.7M20 4v5h-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase">What I'd do differently</span></div><h3 style="margin: 4px 0 0; font-size: 22px; line-height: 1.3; letter-spacing: -0.015em; font-weight: 500; color: var(--fg); text-wrap: balance">Test the content split before polishing</h3><p style="margin: 0; font-size: 17px; line-height: 1.65; color: var(--muted); text-wrap: pretty">I went to high fidelity on the Discover / For You split before testing it with shoppers. Next time I would validate the content rules with a quick card sort or a five-user test first, so the pixels are built on evidence rather than assumption.</p></article></div>
+<figure style="margin: 72px 0 0; display: flex; flex-direction: column; gap: 16px"><span aria-hidden="true" style="font-size: 56px; line-height: 0.6; font-weight: 500; color: var(--line)">“</span><blockquote style="margin: 0; max-width: 920px; font-size: clamp(24px, 2.4vw, 34px); line-height: 1.3; letter-spacing: -0.02em; font-weight: 500; color: var(--fg); text-wrap: balance">The app didn’t need more products. It needed to know the shopper.</blockquote></figure>
+</section>
+</div>
+</div>
+
+<a href="/watch8/" style="margin-top: 112px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; padding: 40px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); text-decoration: none">
+<span style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted)">Next case study</span>
+<span style="font-size: clamp(24px, 2.4vw, 34px); line-height: 1.2; letter-spacing: -0.02em; font-weight: 500">Optimizing the Galaxy Watch8 buy flow</span>
+</span>
+<svg width="28" height="28" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</a>
+
+</main>
+
+<footer style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 56px 40px 64px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 40px">
+<span style="font-size: 15px; color: var(--muted)">© 2026 Ah Young Kim</span>
+<div style="display: flex; flex-wrap: wrap; gap: 4px 32px; font-size: 15px">
+<a href="mailto:ayk9531@gmail.com" style="display: inline-flex; align-items: center; min-height: 44px">ayk9531@gmail.com</a>
+<a href="https://www.linkedin.com/in/ah-young/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; min-height: 44px">LinkedIn <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M4 10L10 4M5 4h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+</div>
+</footer>
+
+</div>
+</script>
+<script src="/js/idiomorph.min.js"></script>
+<script src="/js/dc-lite.js"></script>
+<script>
+class Component extends DCLogic {
+  state = { theme: 'light', active: 'overview', pos: 50, view: 'side' };
+  sectionEls() {
+    const root = this._content || document;
+    return Array.prototype.slice.call(root.querySelectorAll('section[id]'));
+  }
+  spy() {
+    if (this._lockUntil && Date.now() < this._lockUntil) return;
+    const els = this.sectionEls();
+    if (!els.length) return;
+    const line = 200;
+    let current = els[0].id;
+    for (const el of els) {
+      if (el.getBoundingClientRect().top <= line) current = el.id;
+    }
+    const last = els[els.length - 1];
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+    if (last.getBoundingClientRect().bottom <= vh + 4) current = last.id;
+    if (current !== this.state.active) this.setState({ active: current });
+  }
+  componentDidMount() {
+    this.loadTheme();
+    this._onScroll = () => {
+      if (this._raf) return;
+      this._raf = requestAnimationFrame(() => { this._raf = null; this.spy(); });
+    };
+    document.addEventListener('scroll', this._onScroll, true);
+    window.addEventListener('resize', this._onScroll);
+    setTimeout(() => this.spy(), 0);
+  }
+  componentWillUnmount() {
+    document.removeEventListener('scroll', this._onScroll, true);
+    window.removeEventListener('resize', this._onScroll);
+    if (this._raf) cancelAnimationFrame(this._raf);
+  }
+  loadTheme() {
+    try {
+      const t = window.localStorage.getItem('ayk-theme');
+      if (t === 'dark' || t === 'light') this.setState({ theme: t });
+    } catch (e) {}
+  }
+  toggleThemeNow() {
+    const next = (this.state && this.state.theme) === 'dark' ? 'light' : 'dark';
+    this.setState({ theme: next });
+    try { window.localStorage.setItem('ayk-theme', next); } catch (e) {}
+  }
+  renderVals() {
+    const themeNow = (this.state && this.state.theme) === 'dark' ? 'dark' : 'light';
+    const active = (this.state && this.state.active) || 'overview';
+    const items = [["overview", "Overview"], ["brief", "The brief"], ["app", "The app"], ["process", "Behind it"], ["results", "If it shipped"], ["reflection", "Reflection"]];
+    const cst = this.state || {};
+    const cmpPos = typeof cst.pos === 'number' ? cst.pos : 50;
+    const sideView = cst.view !== 'slider';
+    const segOn = { bg: 'var(--bg)', fg: 'var(--fg)', sh: '0 1px 3px rgba(20,23,26,0.12)' };
+    const segOff = { bg: 'transparent', fg: 'var(--muted)', sh: 'none' };
+    const segA = sideView ? segOn : segOff, segB = sideView ? segOff : segOn;
+    return {
+      pos: cmpPos, clip: cmpPos + '%',
+      setPos: (e) => this.setState({ pos: Number(e.target.value) }),
+      sideOn: sideView, sliderOn: !sideView,
+      sideBg: segA.bg, sideFg: segA.fg, sideSh: segA.sh,
+      sliderBg: segB.bg, sliderFg: segB.fg, sliderSh: segB.sh,
+      showSide: () => this.setState({ view: 'side' }),
+      showSlider: () => this.setState({ view: 'slider' }),
+      theme: themeNow,
+      isDark: themeNow === 'dark',
+      isLight: themeNow !== 'dark',
+      themeLabel: themeNow === 'dark' ? 'Switch to light mode' : 'Switch to dark mode',
+      toggleTheme: () => this.toggleThemeNow(),
+      contentRef: (el) => { this._content = el; },
+      toc: items.map(([id, label]) => ({
+        label: label,
+        href: '#' + id,
+        current: id === active ? 'location' : 'false',
+        bg: id === active ? 'var(--hl)' : 'transparent',
+        fg: id === active ? 'var(--fg)' : 'var(--muted)',
+        pick: () => {
+          this._lockUntil = Date.now() + 900;
+          this.setState({ active: id });
+        }
+      }))
+    };
+  }
+}
+DCLite.mount(Component, document.getElementById('dc-tpl'), document.getElementById('app'), {});
+</script>
+</body>
+</html>
