@@ -31,6 +31,9 @@ body:has(.site[data-theme="dark"]){background:#121416}
 .stop:hover .stop-name,.stop:focus-visible .stop-name{text-decoration:underline;text-underline-offset:4px}
 .stop:focus-visible{outline:2px solid var(--hover);outline-offset:6px;border-radius:4px}
 .homes-scroll{scrollbar-width:thin}
+@media (min-width:960px){.homes-scroll{overflow:visible !important}}
+.postcard{will-change:transform}
+.postcard:hover{transform:translateY(-8px) !important;box-shadow:0 18px 36px rgba(20,23,26,.22) !important}
 @media (prefers-reduced-motion:reduce){.cat-anim *{animation:none !important}.postcard{transition:none !important}}
 </style>
 <style>#app{display:contents}</style>
@@ -47,7 +50,7 @@ body:has(.site[data-theme="dark"]){background:#121416}
 <nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0 32px">
 <a class="nav-link" href="/" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; text-decoration: none">Work</a>
 <a class="nav-link" href="#top" aria-current="page" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; text-decoration: none">About</a>
-<a class="nav-link" href="/assets/c9416fa5f0b87efc6c358e7c10e8d57b.pdf" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; text-decoration: none">Resume</a>
+<a class="nav-link" href="/assets/ce8e1b304ed27d9581bc9524d276fdf7.pdf" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; text-decoration: none">Resume</a>
 </nav>
 <span aria-hidden="true" style="width: 1px; height: 18px; background: var(--line)"></span>
 <button type="button" class="theme-btn" onClick="{{ toggleTheme }}" aria-label="{{ themeLabel }}" title="{{ themeLabel }}" style="font-family: inherit; cursor: pointer; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 999px; background: transparent; color: var(--fg); display: inline-flex; align-items: center; justify-content: center">
@@ -119,74 +122,64 @@ body:has(.site[data-theme="dark"]){background:#121416}
 <div style="font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace; font-size: 14px; color: var(--muted2)">2021</div>
 <div style="font-size: 19px; font-weight: 500; line-height: 1.35">First Place, Samsung company-wide intern competition</div>
 </div>
-<a id="resume" href="/assets/c9416fa5f0b87efc6c358e7c10e8d57b.pdf" target="_blank" rel="noopener" download="AhYoungKim-Resume.pdf" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; min-height: 44px; font-size: 17px; color: var(--muted); text-decoration: underline; text-underline-offset: 5px">Download resume <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M4 10L10 4M5 4h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+<a id="resume" href="/assets/ce8e1b304ed27d9581bc9524d276fdf7.pdf" target="_blank" rel="noopener" download="AhYoungKim-Resume.pdf" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; min-height: 44px; font-size: 17px; color: var(--muted); text-decoration: underline; text-underline-offset: 5px">Download resume <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M4 10L10 4M5 4h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
 </div>
 </section>
 
 <section id="homes" aria-label="Homes" style="margin-top: 80px; border-top: 1px solid var(--line); padding-top: 80px">
 <h2 style="margin: 0; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted)">Homes</h2>
 <p style="margin: 14px 0 0; font-size: 22px; line-height: 1.4; letter-spacing: -0.01em; font-weight: 500; text-wrap: pretty">Five places I’ve called home — with my cat Danchu along for the way</p>
-<div class="homes-scroll" style="margin: 8px -40px 0; padding: 0 40px; overflow-x: auto; overflow-y: hidden">
-<div style="position: relative; min-width: 720px; box-sizing: border-box; padding: 296px 0 0">
+<div class="homes-scroll" style="margin: 40px -40px 0; padding: 0 40px; overflow-x: auto; overflow-y: visible">
+<div style="position: relative; min-width: 860px; box-sizing: border-box; padding: 218px 0 0">
 <div style="position: relative">
-<div aria-hidden="true" style="position: absolute; left: 6px; right: 6px; top: 5px; border-top: 2px dashed var(--btn-sub)"></div>
-<ol style="position: relative; list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)) 12px">
+<div aria-hidden="true" style="position: absolute; left: 0; right: 0; top: 5px; border-top: 2px dashed var(--btn-sub)"></div>
+<ol style="position: relative; list-style: none; margin: 0; padding: 18px 0 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr))">
 <li>
 <button type="button" class="stop" onClick="{{ go0 }}" aria-label="Show Korea" style="appearance: none; background: none; border: 0; padding: 0; margin: 0; font: inherit; color: inherit; text-align: left; white-space: nowrap; cursor: pointer; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; min-width: 44px; min-height: 44px">
-<span aria-hidden="true" style="display: block; width: 12px; height: 12px; box-sizing: border-box; border-radius: 50%; margin-bottom: 4px; border: 2px solid var(--fg); background: var(--bg)"></span>
 <span class="stop-name" style="font-size: 16px; line-height: 22px; font-weight: 600">Korea</span>
 <span style="font-size: 13px; line-height: 18px; color: var(--muted)">born here</span>
 </button>
 </li>
 <li>
 <button type="button" class="stop" onClick="{{ go1 }}" aria-label="Show China" style="appearance: none; background: none; border: 0; padding: 0; margin: 0; font: inherit; color: inherit; text-align: left; white-space: nowrap; cursor: pointer; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; min-width: 44px; min-height: 44px">
-<span aria-hidden="true" style="display: block; width: 12px; height: 12px; box-sizing: border-box; border-radius: 50%; margin-bottom: 4px; border: 2px solid var(--fg); background: var(--bg)"></span>
 <span class="stop-name" style="font-size: 16px; line-height: 22px; font-weight: 600">China</span>
 </button>
 </li>
 <li>
 <button type="button" class="stop" onClick="{{ go2 }}" aria-label="Show Mexico" style="appearance: none; background: none; border: 0; padding: 0; margin: 0; font: inherit; color: inherit; text-align: left; white-space: nowrap; cursor: pointer; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; min-width: 44px; min-height: 44px">
-<span aria-hidden="true" style="display: block; width: 12px; height: 12px; box-sizing: border-box; border-radius: 50%; margin-bottom: 4px; border: 2px solid var(--fg); background: var(--bg)"></span>
 <span class="stop-name" style="font-size: 16px; line-height: 22px; font-weight: 600">Mexico</span>
 </button>
 </li>
 <li>
 <button type="button" class="stop" onClick="{{ go3 }}" aria-label="Show Texas" style="appearance: none; background: none; border: 0; padding: 0; margin: 0; font: inherit; color: inherit; text-align: left; white-space: nowrap; cursor: pointer; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; min-width: 44px; min-height: 44px">
-<span aria-hidden="true" style="display: block; width: 12px; height: 12px; box-sizing: border-box; border-radius: 50%; margin-bottom: 4px; border: 2px solid var(--fg); background: var(--bg)"></span>
 <span class="stop-name" style="font-size: 16px; line-height: 22px; font-weight: 600">Texas</span>
 </button>
 </li>
-<li style="justify-self: end">
-<button type="button" class="stop" onClick="{{ go4 }}" aria-label="Show San Francisco" style="appearance: none; background: none; border: 0; padding: 0; margin: 0; font: inherit; color: inherit; text-align: right; white-space: nowrap; cursor: pointer; display: flex; flex-direction: column; align-items: flex-end; gap: 6px; min-width: 44px; min-height: 44px">
-<span aria-hidden="true" style="display: block; width: 12px; height: 12px; box-sizing: border-box; border-radius: 50%; margin-bottom: 4px; border: 2px solid var(--hover); background: var(--hover)"></span>
+<li>
+<button type="button" class="stop" onClick="{{ go4 }}" aria-label="Show San Francisco" style="appearance: none; background: none; border: 0; padding: 0; margin: 0; font: inherit; color: inherit; text-align: left; white-space: nowrap; cursor: pointer; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; min-width: 44px; min-height: 44px">
 <span class="stop-name" style="font-size: 16px; line-height: 22px; font-weight: 600">San Francisco</span>
 <span style="font-size: 13px; line-height: 18px; color: var(--muted)">now</span>
 </button>
 </li>
 </ol>
-<div aria-hidden="true" style="position: absolute; left: 6px; right: 6px; top: 0; height: 0">
-<div class="postcard" style="position: absolute; left: 0%; bottom: 56px; width: 180px; margin-left: -24px; box-sizing: border-box; padding: 10px 10px 12px; background: #FFFFFF; border-radius: 4px; box-shadow: 0 10px 24px rgba(20, 23, 26, 0.18); transform-origin: 50% 100%; opacity: {{ c0.o }}; visibility: {{ c0.v }}; transform: {{ c0.t }}; transition: {{ c0.tr }}">
+<div aria-hidden="true" style="position: absolute; left: 0; right: 0; top: 0; height: 0; z-index: 1">
+<div class="postcard" style="--tilt: 0deg; position: absolute; left: 0%; bottom: 44px; width: 160px; margin-left: 0; box-sizing: border-box; padding: 10px 10px 22px; background: #FFFFFF; border-radius: 4px; box-shadow: 0 10px 24px rgba(20, 23, 26, 0.18); transform-origin: 50% 100%; opacity: {{ c0.o }}; visibility: {{ c0.v }}; transform: {{ c0.t }}; transition: {{ c0.tr }}">
 <img src="/assets/0a63dde6513712f4326244ef9ded1d18.jpg" alt="Gyeongbokgung Palace in Seoul" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 2px">
-<div style="margin-top: 10px; font-size: 13px; line-height: 18px; color: #5B636B; font-style: italic; text-align: center">Korea</div>
 </div>
-<div class="postcard" style="position: absolute; left: 25%; bottom: 56px; width: 180px; margin-left: -90px; box-sizing: border-box; padding: 10px 10px 12px; background: #FFFFFF; border-radius: 4px; box-shadow: 0 10px 24px rgba(20, 23, 26, 0.18); transform-origin: 50% 100%; opacity: {{ c1.o }}; visibility: {{ c1.v }}; transform: {{ c1.t }}; transition: {{ c1.tr }}">
+<div class="postcard" style="--tilt: 0deg; position: absolute; left: 20%; bottom: 44px; width: 160px; margin-left: 0; box-sizing: border-box; padding: 10px 10px 22px; background: #FFFFFF; border-radius: 4px; box-shadow: 0 10px 24px rgba(20, 23, 26, 0.18); transform-origin: 50% 100%; opacity: {{ c1.o }}; visibility: {{ c1.v }}; transform: {{ c1.t }}; transition: {{ c1.tr }}">
 <img src="/assets/af334549f494bec15a4ba664d31c99c9.jpg" alt="The Great Wall of China" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 2px">
-<div style="margin-top: 10px; font-size: 13px; line-height: 18px; color: #5B636B; font-style: italic; text-align: center">China</div>
 </div>
-<div class="postcard" style="position: absolute; left: 50%; bottom: 56px; width: 180px; margin-left: -90px; box-sizing: border-box; padding: 10px 10px 12px; background: #FFFFFF; border-radius: 4px; box-shadow: 0 10px 24px rgba(20, 23, 26, 0.18); transform-origin: 50% 100%; opacity: {{ c2.o }}; visibility: {{ c2.v }}; transform: {{ c2.t }}; transition: {{ c2.tr }}">
+<div class="postcard" style="--tilt: 0deg; position: absolute; left: 40%; bottom: 44px; width: 160px; margin-left: 0; box-sizing: border-box; padding: 10px 10px 22px; background: #FFFFFF; border-radius: 4px; box-shadow: 0 10px 24px rgba(20, 23, 26, 0.18); transform-origin: 50% 100%; opacity: {{ c2.o }}; visibility: {{ c2.v }}; transform: {{ c2.t }}; transition: {{ c2.tr }}">
 <img src="/assets/7ca494f7867211d8425b6d61731a0dcb.jpg" alt="Cerro de la Silla above Monterrey" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 2px">
-<div style="margin-top: 10px; font-size: 13px; line-height: 18px; color: #5B636B; font-style: italic; text-align: center">Mexico</div>
 </div>
-<div class="postcard" style="position: absolute; left: 75%; bottom: 56px; width: 180px; margin-left: -90px; box-sizing: border-box; padding: 10px 10px 12px; background: #FFFFFF; border-radius: 4px; box-shadow: 0 10px 24px rgba(20, 23, 26, 0.18); transform-origin: 50% 100%; opacity: {{ c3.o }}; visibility: {{ c3.v }}; transform: {{ c3.t }}; transition: {{ c3.tr }}">
+<div class="postcard" style="--tilt: 0deg; position: absolute; left: 60%; bottom: 44px; width: 160px; margin-left: 0; box-sizing: border-box; padding: 10px 10px 22px; background: #FFFFFF; border-radius: 4px; box-shadow: 0 10px 24px rgba(20, 23, 26, 0.18); transform-origin: 50% 100%; opacity: {{ c3.o }}; visibility: {{ c3.v }}; transform: {{ c3.t }}; transition: {{ c3.tr }}">
 <img src="/assets/63745f8e0fac7abc3cd77d8b7fd8eb36.jpg" alt="West Texas grassland and mountains" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 2px">
-<div style="margin-top: 10px; font-size: 13px; line-height: 18px; color: #5B636B; font-style: italic; text-align: center">Texas</div>
 </div>
-<div class="postcard" style="position: absolute; left: 100%; bottom: 56px; width: 180px; margin-left: -156px; box-sizing: border-box; padding: 10px 10px 12px; background: #FFFFFF; border-radius: 4px; box-shadow: 0 10px 24px rgba(20, 23, 26, 0.18); transform-origin: 50% 100%; opacity: {{ c4.o }}; visibility: {{ c4.v }}; transform: {{ c4.t }}; transition: {{ c4.tr }}">
+<div class="postcard" style="--tilt: 0deg; position: absolute; left: 80%; bottom: 44px; width: 160px; margin-left: 0; box-sizing: border-box; padding: 10px 10px 22px; background: #FFFFFF; border-radius: 4px; box-shadow: 0 10px 24px rgba(20, 23, 26, 0.18); transform-origin: 50% 100%; opacity: {{ c4.o }}; visibility: {{ c4.v }}; transform: {{ c4.t }}; transition: {{ c4.tr }}">
 <img src="/assets/9d5d362bb5e2588d94739b2da64ffe7a.jpg" alt="The Golden Gate Bridge and the San Francisco skyline" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 2px">
-<div style="margin-top: 10px; font-size: 13px; line-height: 18px; color: #5B636B; font-style: italic; text-align: center">San Francisco</div>
 </div>
 </div>
-<div style="position: absolute; left: 6px; right: 6px; top: 0; height: 7px; pointer-events: none; transform: translateX({{ catX }}); transition: transform {{ dur }} linear">
+<div style="position: absolute; left: {{ catX }}; width: 0; top: 0; height: 7px; pointer-events: none; transition: left {{ dur }} linear">
 <div style="position: absolute; left: -30px; bottom: 0; width: 60px; height: 45px">
 <div class="cat-anim" style="width: 100%; height: 100%; transform: {{ flip }}">
 <svg width="100%" height="100%" viewBox="0 0 64 48" fill="none" role="img" aria-label="Siamese cat" style="display: block; overflow: visible">
@@ -288,7 +281,6 @@ body:has(.site[data-theme="dark"]){background:#121416}
 </div>
 </div>
 </div>
-<p style="margin: 20px 0 0; font-size: 14px; color: var(--muted)">Click a city to see it.</p>
 </section>
 
 </main>
@@ -378,15 +370,12 @@ class Component extends DCLogic {
   _tourStep(i) {
     this.setState({ open: i });
     if (i >= 4) { this._later(10000, () => this._replay()); return; }
-    this._later(1000, () => this._walkTo(i + 1, () => this._tourStep(i + 1)));
+    this._later(900, () => this._walkTo(i + 1, () => this._tourStep(i + 1)));
   }
   _replay() {
-    this.setState({ open: -1 });
-    this._later(350, () => {
-      this._move = null;
-      this.setState({ pos: 0, moving: false, dur: 0, dir: 1 });
-      this._later(700, () => this._tourStep(0));
-    });
+    this._move = null;
+    this.setState({ open: -1, pos: 0, moving: false, dur: 0, dir: 1 });
+    this._later(700, () => this._tourStep(0));
   }
   _currentPos() {
     const m = this._move;
@@ -412,7 +401,7 @@ class Component extends DCLogic {
     if (!this.state.started) this.setState({ started: true });
     if (!this.state.moving && this.state.pos === i) {
       clearTimeout(this._t);
-      this.setState({ open: this.state.open === i ? -1 : i });
+      this.setState({ open: i });
       return;
     }
     this._walkTo(i, () => this.setState({ open: i }), true);
@@ -420,10 +409,9 @@ class Component extends DCLogic {
   renderVals() {
     const themeNow = (this.state && this.state.theme) === 'dark' ? 'dark' : 'light';
     const copied = !!(this.state && this.state.copied);
-    const tilts = [-2, 1.5, -1.5, 2, -1];
-    const cards = tilts.map((tilt, i) => (this.state.open === i
-      ? { o: 1, v: 'visible', t: 'translateY(0px) scale(1) rotate(' + tilt + 'deg)', tr: 'opacity 0.25s ease, transform 0.4s cubic-bezier(0.2, 0.9, 0.3, 1.25)' }
-      : { o: 0, v: 'hidden', t: 'translateY(18px) scale(0.6) rotate(0deg)', tr: 'opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0.18s' }));
+    const cards = [0, 1, 2, 3, 4].map((i) => (this.state.open === i
+      ? { o: 1, v: 'visible', t: 'translateY(-8px)', tr: 'transform 0.45s cubic-bezier(0.2, 0.9, 0.3, 1.2)' }
+      : { o: 1, v: 'visible', t: 'translateY(0px)', tr: 'transform 0.35s ease' }));
     return {
       theme: themeNow,
       isDark: themeNow === 'dark',
@@ -434,7 +422,7 @@ class Component extends DCLogic {
       design: this.props.design ?? '#577D98',
       accent: this.props.accent ?? '#4B735B',
       copyLabel: copied ? 'Copied ✓' : 'Copy',
-      catX: ((this.state.pos || 0) * 25) + '%',
+      catX: 'calc(' + ((this.state.pos || 0) * 20) + '% + 80px)',
       dur: ((this.state.dur || 0) / 1000) + 's',
       flip: 'scaleX(' + (this.state.dir || 1) + ')',
       walkO: this.state.moving ? 1 : 0,
